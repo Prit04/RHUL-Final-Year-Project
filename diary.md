@@ -10,3 +10,8 @@ Ideas for the game are a FPS, drawing inspiration from titles such as Doom or Ha
 
 With much consideration to the ideas and functionaltiy of both engines i have decided on using GoDot. This engine is more suitable for me and this proejct and alligns with the skills i posses to excel with some of the concepts. The documentation for this engine has been read and tutorials provided have been attempted.
 Further with this the project plan will be started, finding relavent books and papers to aid in my work.
+
+
+### 04/10/2024
+
+On the 3rd of october i had met with my supervisor and discussd the project ideas that i had come up with and talked about any relavent help with the project plan. Following this a draft plan has been started.
