@@ -20,3 +20,9 @@ On the 3rd of october i had met with my supervisor and discussd the project idea
 ### 07/10/2024
 
 The plan timeline has been drafted up and the abstarct has been partially drafted too. Research into relavent papers has also been conducted with papers such as 'Designing procedurally generated levels' - Linden, R., Lopes, R., & Bidarra, R. (2021). Designing Procedurally Generated Levels. Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment, 9(3), 41-47. https://doi.org/10.1609/aiide.v9i3.12592. Risks and mitigations for those risks have been drafted into the day book.
+
+
+### 08/10/2024
+
+The risks and mitigations section of the project plan has been completed. Once other parts of the plan are complete a draft will be sent to my supervisor for any final comments and tweaks and will be changed. with this, the timeline will now be started, building upon the initial draft i did for it. Abstract is still to be finished as the bibliography for it is still limited.
+
