@@ -30,3 +30,4 @@ The risks and mitigations section of the project plan has been completed. Once o
 ### 09/10/2024
 
 The timeline for the project has been completed, with specified milestone and mapped to the term weeks. The abstarct still needs work and further research is being conducted. Once a rough abstarct is complete, i will send it to my supervisor for comments, and with these, on the 10th the plan will be completed, ready for submission on the 11th.
+I have sent what i have done of the plan so far to my supervisor for further guidance, once feedback is recived from them, i will continue in the correct direction.
