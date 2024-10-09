@@ -26,3 +26,7 @@ The plan timeline has been drafted up and the abstarct has been partially drafte
 
 The risks and mitigations section of the project plan has been completed. Once other parts of the plan are complete a draft will be sent to my supervisor for any final comments and tweaks and will be changed. with this, the timeline will now be started, building upon the initial draft i did for it. Abstract is still to be finished as the bibliography for it is still limited.
 
+
+### 09/10/2024
+
+The timeline for the project has been completed, with specified milestone and mapped to the term weeks. The abstarct still needs work and further research is being conducted. Once a rough abstarct is complete, i will send it to my supervisor for comments, and with these, on the 10th the plan will be completed, ready for submission on the 11th.
