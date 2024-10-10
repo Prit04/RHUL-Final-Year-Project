@@ -35,3 +35,4 @@ The timeline for the project has been completed, with specified milestone and ma
 
 ### 10/10/2024
 I have recived positive feedback about my plan from my supervisor with further tips to finish off the abstract and bibliography. Work on this is underway and should be completed by tonight. Further research on papers have also been done.
+<br /> <br /> The project plan is pretty much finished. The timeline, risks and bibliography is done, the abstract is almost finished, it needs a touch up and a bit more writing and the plan will be ready for the submission. Once done, the IDE will be setup and coding will begin.
