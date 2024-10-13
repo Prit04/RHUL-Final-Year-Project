@@ -43,3 +43,8 @@ I have recived positive feedback about my plan from my supervisor with further t
 The project plan has been completed and uploaded to moodle. Now that it is complete, the coding for the game will begin.
 <br /> <br /> The file has also been uploaded to the Gitlab documents directory.
 <br /> <br /> The interim report will be drafted once the coding starts.
+
+
+### 13/10/2024
+
+The Godot IDE is setup, linked with the gitlab, a master branch has been created for the inital work to begin. I wil start,a s stated in the project plan, with the games menu screens.
