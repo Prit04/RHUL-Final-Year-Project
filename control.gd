@@ -10,12 +10,12 @@ func _ready():
 
 func _on_start_button_pressed():
 	#Loads the game state screen
-	get_tree().change_screen("res://scenes/Game.tscn")
+	get_tree().change_scene_to_file("res://Game.tscn")
 
 
 func _on_options_button_pressed():
 		#Loads the options menu
-	get_tree().change_scene("res://OptionsMenu.tscn")
+	get_tree().change_scene_to_file("res://OptionsMenu.tscn")
 
 
 func _on_exit_button_pressed():
