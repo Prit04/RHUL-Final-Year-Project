@@ -48,3 +48,8 @@ The project plan has been completed and uploaded to moodle. Now that it is compl
 ### 13/10/2024
 
 The Godot IDE is setup, linked with the gitlab, a master branch has been created for the inital work to begin. I wil start,a s stated in the project plan, with the games menu screens. I have created the buttons with a control node, and have attched a script to allow for fucntionality of these menu buttons, this is not finished yet.
+
+
+### 14/10/2024
+
+I have created placeholder menu screens such as the main menu, game screen, and the options menu. I have partially scripted the menu buttons to be connected to each screen when they are pressed.
