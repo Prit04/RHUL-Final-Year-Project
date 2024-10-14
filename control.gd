@@ -2,22 +2,23 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	$VBoxContainer/StartButton.connect("pressed", Callable(self, "_on_StartButton_pressed"))
+	$VBoxContainer/OptionsButton.connect("pressed", Callable(self, "_on_OptionsButton_pressed"))
+	$VBoxContainer/ExitButton.connect("pressed", Callable(self, "_on_ExitButton_pressed"))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_start_button_pressed():
+	#Loads the game state screen
+	get_tree().change_screen("res://scenes/Game.tscn")
 
 
-func _on_start_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_options_button_pressed():
+		#Loads the options menu
+	get_tree().change_scene("res://OptionsMenu.tscn")
 
 
-func _on_options_button_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_exit_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_exit_button_pressed():
+	# Quit the game
+	get_tree().quit()
+	
