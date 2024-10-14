@@ -23,6 +23,7 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
+icon_alignment = 1
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
