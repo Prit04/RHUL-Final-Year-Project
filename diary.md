@@ -57,3 +57,8 @@ I have created placeholder menu screens such as the main menu, game screen, and 
 <br /> <br />I have relalised the documentation i was using was for Godot v3 and not v4 which is the version i am using. in v3 they used just change_scene, whereas in v4 they chnaged it to change_scene_to_file("..."), which now works. i will now refer to using the v4 documentation, opposed to the v3 which i wrongly opened. The buttons for the main menu screen now have functionality and take the me to the correct screen. I will now begin on creating a back button for the menus and visually sort them out.
 <br /> <br />I have centred the main menu buttons and gave them lables.
 <br /> <br />I have added a back button to options menu, created a scrpit in the options menu to add functionality to get the player back to the main menu.
+
+
+### 15/10/2024
+
+Today i looked at some potential free assets that i can use for the UI, however still undecided on which to go for. I have created a 3D player with a mesh and collison nodes, I will now add functonalilty to these. I also attempt to do the player movement and try to attempt the above style camera.
