@@ -62,3 +62,4 @@ I have created placeholder menu screens such as the main menu, game screen, and 
 ### 15/10/2024
 
 Today i looked at some potential free assets that i can use for the UI, however still undecided on which to go for. I have created a 3D player with a mesh and collison nodes, I will now add functonalilty to these. I also attempt to do the player movement and try to attempt the above style camera.
+<br /> <br />I have creeated a basic rudimentary movement script for the player. I will work on the camera and test to see if it works.
