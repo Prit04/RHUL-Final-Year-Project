@@ -65,4 +65,4 @@ Today i looked at some potential free assets that i can use for the UI, however 
 <br /> <br />I have created a basic rudimentary movement script for the player and mapped the physical buttons on the keyboard to work with the script. I will work on the camera and test to see if it works.
 <br /> <br />I have created a test environment, basic plane with collision, the movement for the player works along with collision, the camera however is not working as expected. Therefore i need to work on fixing that.
 <br /> <br />I have sorted the camera angle out but now the controls seem to be inverted, i will need to look into this and fix it.
-<br /> <br />I have had to do a temporary inversion of the controls which has seem to do the job, i have sorted out the camera angle as well.
+<br /> <br />I have had to do a temporary inversion of the controls which has seem to do the job, i have sorted out the camera angle as well. i have replaced the placeholder game menu with the current screen with the player and environment.
