@@ -64,3 +64,4 @@ I have created placeholder menu screens such as the main menu, game screen, and 
 Today i looked at some potential free assets that i can use for the UI, however still undecided on which to go for. I have created a 3D player with a mesh and collison nodes, I will now add functonalilty to these. I also attempt to do the player movement and try to attempt the above style camera.
 <br /> <br />I have created a basic rudimentary movement script for the player and mapped the physical buttons on the keyboard to work with the script. I will work on the camera and test to see if it works.
 <br /> <br />I have created a test environment, basic plane with collision, the movement for the player works along with collision, the camera however is not working as expected. Therefore i need to work on fixing that.
+<br /> <br />I have sorted the camera angle out but now the controls seem to be inverted, i will need to look into this and fix it.
