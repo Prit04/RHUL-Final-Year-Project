@@ -10,7 +10,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	#Loads the game state screen
-	get_tree().change_scene_to_file("res://Game.tscn")
+	get_tree().change_scene_to_file("res://MainGameEnvironment.tscn")
 
 
 func _on_options_button_pressed():
