@@ -16,13 +16,13 @@ func handle_movement(delta):
 	var input_dir = Vector3.ZERO
 	
 	if Input.is_action_pressed("move_forward"):  # W or Up
-		input_dir.z -= 1
-	if Input.is_action_pressed("move_back"):     # S or Down
 		input_dir.z += 1
+	if Input.is_action_pressed("move_back"):     # S or Down
+		input_dir.z -= 1
 	if Input.is_action_pressed("move_left"):     # A or Left
-		input_dir.x -= 1
-	if Input.is_action_pressed("move_right"):    # D or Right
 		input_dir.x += 1
+	if Input.is_action_pressed("move_right"):    # D or Right
+		input_dir.x -= 1
 
 	# Normalize the direction to avoid faster diagonal movement
 	if input_dir != Vector3.ZERO:
