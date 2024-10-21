@@ -66,3 +66,8 @@ Today i looked at some potential free assets that i can use for the UI, however 
 <br /> <br />I have created a test environment, basic plane with collision, the movement for the player works along with collision, the camera however is not working as expected. Therefore i need to work on fixing that.
 <br /> <br />I have sorted the camera angle out but now the controls seem to be inverted, i will need to look into this and fix it.
 <br /> <br />I have had to do a temporary inversion of the controls which has seem to do the job, i have sorted out the camera angle as well. i have replaced the placeholder game menu with the current screen with the player and environment.
+
+
+### 21/10/2024
+
+After a few days off to work on other univeristy work and commitments, it is the start of week and i will start the next stages of the work required. This week i am to implement the plaer HUD, implement the eneimes and a basic combat system.
