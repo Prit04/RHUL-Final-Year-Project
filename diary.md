@@ -75,4 +75,4 @@ After a few days off to work on other univeristy work and commitments, it is the
 
 ### 22/10/2024
 
-I have created a 2D scene for the players HUD, with a placeholder health bar. The rest of the HUD will be added soon. I have also linked and overlayed it on the main game screen, having tested it, it is functional.
+I have created a 2D scene for the players HUD, with a placeholder health bar. The rest of the HUD will be added soon. I have also linked and overlayed it on the main game screen, having tested it, it is functional. I cannot test this health bar till i create some enemies, so my next goal is to create a simple enemy factory.
