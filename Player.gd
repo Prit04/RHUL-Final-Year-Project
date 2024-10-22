@@ -4,6 +4,7 @@ extends CharacterBody3D
 var speed = 5.0
 var gravity = -9.8  # Optional, for vertical movement
 
+
 func _physics_process(delta):
 	handle_movement(delta)
 

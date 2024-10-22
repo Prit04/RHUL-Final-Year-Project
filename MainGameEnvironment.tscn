@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc12pk3k2hcoi"]
+[gd_scene load_steps=5 format=3 uid="uid://cc12pk3k2hcoi"]
 
 [ext_resource type="PackedScene" uid="uid://c32di2fuq4ls3" path="res://player.tscn" id="1_ulxts"]
+[ext_resource type="PackedScene" uid="uid://bfo8vu5ys4rv0" path="res://hud.tscn" id="2_8egin"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37ilg"]
 
@@ -18,3 +19,5 @@ mesh = SubResource("PlaneMesh_u0b5d")
 
 [node name="Player" parent="." instance=ExtResource("1_ulxts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="HUD" parent="." instance=ExtResource("2_8egin")]
