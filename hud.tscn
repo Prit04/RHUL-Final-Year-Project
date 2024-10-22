@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bfo8vu5ys4rv0"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: 100"
