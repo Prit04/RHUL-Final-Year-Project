@@ -71,3 +71,8 @@ Today i looked at some potential free assets that i can use for the UI, however 
 ### 21/10/2024
 
 After a few days off to work on other univeristy work and commitments, it is the start of week and i will start the next stages of the work required. This week i am to implement the plaer HUD, implement the eneimes and a basic combat system.
+
+
+### 22/10/2024
+
+I have created a 2D scene for the players HUD, with a placeholder health bar. The rest of the HUD will be added soon. I have also linked and overlayed it on the main game screen, having tested it, it is functional.
