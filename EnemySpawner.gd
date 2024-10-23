@@ -19,7 +19,7 @@ func spawn_enemies() -> void:
 		# Set a random spawn position
 		var spawn_position = Vector3(
 			randf_range(-10, 10),  # X position
-			0,  # Y position (ground level)
+			1,  # Y position (ground level)
 			randf_range(-10, 10)   # Z position
 		)
 		enemy_instance.global_position = spawn_position
