@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cny51xptnsdk1"]
+[gd_scene load_steps=9 format=3 uid="uid://cny51xptnsdk1"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_1smaw"]
-[ext_resource type="Texture2D" uid="uid://bp76scifim2ry" path="res://UI assets/button_atlas.tres" id="2_06vb6"]
-[ext_resource type="Texture2D" uid="uid://csly6e7otdvv8" path="res://UI assets/button_pressed.tres" id="3_godu1"]
+[ext_resource type="Texture2D" uid="uid://bmtr4ardxsnjb" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button02a_4.png" id="2_yuv2s"]
+[ext_resource type="Texture2D" uid="uid://cijb5f3rdy830" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button02a_1.png" id="3_5ntuu"]
+[ext_resource type="Texture2D" uid="uid://baku6pav065k8" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button02a_3.png" id="4_4gcb5"]
+[ext_resource type="Texture2D" uid="uid://c2hnigdhboeh6" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button02a_2.png" id="5_enhrp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_42lit"]
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xfqy5"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_livuu"]
 font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="VBoxContainer"]
@@ -29,9 +34,9 @@ script = ExtResource("1_1smaw")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture_normal = ExtResource("2_06vb6")
-texture_pressed = ExtResource("3_godu1")
-texture_hover = ExtResource("3_godu1")
+texture_normal = ExtResource("2_yuv2s")
+texture_pressed = ExtResource("3_5ntuu")
+texture_hover = ExtResource("4_4gcb5")
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
@@ -48,9 +53,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture_normal = ExtResource("2_06vb6")
-texture_pressed = ExtResource("3_godu1")
-texture_hover = ExtResource("3_godu1")
+texture_normal = ExtResource("2_yuv2s")
+texture_pressed = ExtResource("3_5ntuu")
+texture_hover = ExtResource("4_4gcb5")
 
 [node name="Label" type="Label" parent="OptionsButton"]
 layout_mode = 0
@@ -61,9 +66,22 @@ text = "Options"
 label_settings = SubResource("LabelSettings_xfqy5")
 horizontal_alignment = 1
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="TextureButton" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_yuv2s")
+texture_pressed = ExtResource("3_5ntuu")
+texture_hover = ExtResource("5_enhrp")
+
+[node name="Label" type="Label" parent="ExitButton"]
+layout_mode = 0
+offset_left = 8.82317
+offset_right = 48.8232
+offset_bottom = 23.0
+scale = Vector2(0.463415, 1.04)
 text = "Exit"
+label_settings = SubResource("LabelSettings_livuu")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

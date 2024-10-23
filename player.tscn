@@ -1,29 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://c32di2fuq4ls3"]
+[gd_scene load_steps=7 format=3 uid="uid://c32di2fuq4ls3"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_2d50e"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_co7la"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_snjbk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8dpj"]
-albedo_color = Color(1, 0.117647, 1, 1)
-metallic = 0.52
-metallic_specular = 0.74
+[ext_resource type="PackedScene" uid="uid://dxcvlhb4yy8nu" path="res://UI assets/Free Essential Animation CC0/Idle.fbx" id="3_wgjsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ug40f"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1lf3"]
+albedo_color = Color(1, 0.0156863, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nnc8n"]
+material = SubResource("StandardMaterial3D_q1lf3")
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2d50e")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_snjbk")
-surface_material_override/0 = SubResource("StandardMaterial3D_t8dpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ug40f")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.998136, -0.0431557, 0.0431556, 4.78065e-09, 0.707107, 0.707107, -0.0610313, -0.705789, 0.705789, 0, 10, 8.52937)
+transform = Transform3D(0.998136, -0.0431557, 0.0431556, 4.78065e-09, 0.707107, 0.707107, -0.0610313, -0.705789, 0.705789, 0, 11.3706, 10.2689)
 fov = 70.0
 script = ExtResource("2_co7la")
 target = NodePath("..")
+
+[node name="Idle" parent="." instance=ExtResource("3_wgjsa")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_nnc8n")

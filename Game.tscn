@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b34d3njc0d05m"]
+[gd_scene format=3 uid="uid://da7quto8fp8um"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +7,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_vertical_guides_ = [-110.0]
