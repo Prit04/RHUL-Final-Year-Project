@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cny51xptnsdk1"]
+[gd_scene load_steps=6 format=3 uid="uid://cny51xptnsdk1"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_1smaw"]
 [ext_resource type="Texture2D" uid="uid://bp76scifim2ry" path="res://UI assets/button_atlas.tres" id="2_06vb6"]
@@ -7,50 +7,64 @@
 [sub_resource type="LabelSettings" id="LabelSettings_42lit"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="CenterContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_xfqy5"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="VBoxContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -16.0
-offset_right = 38.5
-offset_bottom = 16.0
+offset_left = -18.5
+offset_top = -15.5
+offset_right = 18.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3.28, 1)
 script = ExtResource("1_1smaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 2
-alignment = 1
-
-[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
 texture_normal = ExtResource("2_06vb6")
 texture_pressed = ExtResource("3_godu1")
 texture_hover = ExtResource("3_godu1")
-stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/StartButton"]
+[node name="Label" type="Label" parent="StartButton"]
 layout_mode = 0
 offset_left = 2.0
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(0.707318, 1.32257)
 text = "Start"
 label_settings = SubResource("LabelSettings_42lit")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="."]
 layout_mode = 2
-text = "Options"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_06vb6")
+texture_pressed = ExtResource("3_godu1")
+texture_hover = ExtResource("3_godu1")
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="OptionsButton"]
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 23.0
+scale = Vector2(0.512196, 1.08)
+text = "Options"
+label_settings = SubResource("LabelSettings_xfqy5")
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="."]
 layout_mode = 2
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
