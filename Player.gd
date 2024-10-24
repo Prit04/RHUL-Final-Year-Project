@@ -4,6 +4,43 @@ extends CharacterBody3D
 var speed = 5.0
 var gravity = -9.8  # Optional, for vertical movement
 
+var attack_range = 2.0
+var attack_damage = 10 
+
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		attack()
+
+func attack():
+	var enemies_in_range = get_enemies_in_range()
+	
+	for enemy in enemies_in_range:
+		if enemy.has_method("take_damage"):
+			enemy.take_damage(attack_damage)
+
+func get_enemies_in_range() -> Array:
+	var enemies_in_range = []
+	var space_state = get_world_3d().direct_space_state
+	
+	# Create a shape for the query (a sphere for melee range detection)
+	var shape = SphereShape3D.new()
+	shape.radius = attack_range  # Set the radius of the sphere
+	
+	# Create the query parameters
+	var query = PhysicsShapeQueryParameters3D.new()
+	query.shape_rid = shape.get_rid()  # Use the RID of the shape
+	query.transform = global_transform  # Use the player's global transform to place the sphere
+	query.collision_mask = 1  # Adjust this based on your collision layers setup
+	
+	var result = space_state.intersect_shape(query)
+	
+	for hit in result:
+		if hit.collider is CharacterBody3D:
+			enemies_in_range.append(hit.collider)
+	
+	return enemies_in_range
+
+
 
 func _physics_process(delta):
 	handle_movement(delta)

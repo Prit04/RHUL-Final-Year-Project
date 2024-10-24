@@ -26,5 +26,10 @@ func randomize_direction():
 	move_direction = Vector3(randf_range(-1, 1), 0, randf_range(-1, 1)).normalized()
 
 # Take damage when hit
-func take_damage(amount):
-	health -= amount
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		die()
+		
+func die():
+	queue_free()
