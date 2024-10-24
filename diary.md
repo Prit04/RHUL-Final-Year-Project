@@ -83,3 +83,8 @@ I have created a 2D scene for the players HUD, with a placeholder health bar. Th
 I have worked on the enemey 3D model and given it a script, which lets it move randomly and have speed and health. I then created a spawn factory in the main game state which will spawn the enemey randomly on the map. This is al tested and works as needs be. One error encountered was the enemey kept spawning into the map then falling below, this was a simple fix by changing its y coords higher.
 <br /> <br />I had some time to work on the assets, i added textures to the buttons and gave them a slight animation of hovered and pressed. I also added some basic lighting to the main game state along with some colour differentiations.
 <br /> <br />I had a look at some further assets such as animations for the player. Im still yet to decide on one but i may get a free animated one and just use it as a placeholder and use it to understand how to implement the animations in the project.
+
+
+### 24/10/2024
+
+I implemented a very basic combat system where the player presses the space bar near an enemy and they take damage, once zero they are killed and taken off the screen. i will continue to improve and work on this combat system, but this very basic system will suffice for now.
