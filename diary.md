@@ -95,3 +95,8 @@ I implemented a very basic combat system where the player presses the space bar 
 
  To start off the new week i spent some time refelcting on what had been done and what needs doing, consulting the timeline i created in the project plan. I have realsied that functionality wise i am ahead on what i had predicted which is a good sign, which means i can spend some time on finding and implementing assets and animations into the game.
 v<br /> <br />I have visted webisted such as Kenney and itch.io for free assets to use.
+
+
+### 28/10/2024
+
+I have started to work on the enemy attack script.
