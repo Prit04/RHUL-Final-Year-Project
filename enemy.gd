@@ -2,57 +2,47 @@ extends CharacterBody3D
 
 var health = 50
 var speed = 2.0
+
 var attack_damage = 10
-var detection_range = 10.0
 var attack_range = 2.0
 var attack_cooldown = 1.0
-var can_attack = true
+var can_attack: bool = true
 
-# Reference to the player
-onready var player = get_tree().get_root().get_node("Player")  
+@onready var player = get_node("/root/StaticBody3D/Player")
 
-func _physics_process(delta):
-	if player:
-		var distance_to_player = global_position.distance_to(player.global_position)
+func _physics_process(delta: float) -> void:
+	if not is_instance_valid(player) or player.is_dead:
+		return
+	move_towards_player(delta)
+	if is_player_in_range():
+		attack_player()
 
-		if distance_to_player <= attack_range:
-			# Attack the player
-			attack_player()
-			velocity = Vector3.ZERO  # Stop moving when attacking
-		elif distance_to_player <= detection_range:
-			move_towards_player(delta)
-		else:
-			# Idle or random movement
-			random_movement(delta)
-	else:
-		player = get_tree().get_root().get_node("Player")
-		
-	velocity.y += ProjectSettings.get_setting("physics/3d/default_gravity") * delta
-	move_and_slide()
+func is_player_in_range() -> bool:
+	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
+	return distance_to_player <= attack_range
 
-func move_towards_player(delta):
-	var direction = (player.global_position - global_position).normalized()
+
+func move_towards_player(delta: float) -> void:
+	var direction = (player.global_transform.origin - global_transform.origin).normalized()
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-
-func random_movement(delta):
-	# Implement random movement or keep the enemy idle
-	velocity.x = 0
-	velocity.z = 0
-
-func attack_player():
+	velocity.y = 0
+	move_and_slide()
+	
+func attack_player() -> void:
 	if can_attack:
 		player.take_damage(attack_damage)
 		can_attack = false
-		# Start the attack cooldown
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
+
 
 # Take damage when hit
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		die()
-		
+
+
 func die():
 	queue_free()

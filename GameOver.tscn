@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dos3aa6nfvicg"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_s1nir"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s1nir")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 85.0
+color = Color(0, 0, 0, 0.00392157)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 189.0
+offset_right = 356.0
+offset_bottom = 255.0
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Restart
+"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"

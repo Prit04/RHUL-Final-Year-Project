@@ -7,7 +7,45 @@ var gravity = -9.8  # Optional, for vertical movement
 var attack_range = 2.0
 var attack_damage = 10 
 
+var max_health = 100
+var current_health = 100
+
+var is_dead = false
+
+func take_damage(damage):
+	if is_dead:
+		return
+	current_health -= damage
+	if current_health <= 0:
+		die()
+	else:
+		update_health_ui()
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
+	print("player has died.")
+	
+	var hud = get_node_or_null("/root/StaticBody3D/HUD")
+	if hud:
+		hud.visible = false
+		show_game_over()
+
+func show_game_over():
+	var game_over_scene = load("res://GameOver.tscn")  # Ensure the path is correct
+	var game_over_instance = game_over_scene.instantiate()
+	get_tree().current_scene.add_child(game_over_instance)
+
+
+func update_health_ui() -> void:
+	var hud = get_node_or_null("/root/StaticBody3D/HUD")
+	if hud:
+		hud.update_health(current_health, max_health)
+
 func _process(delta):
+	if is_dead:
+		return
 	if Input.is_action_just_pressed("attack"):
 		attack()
 
@@ -46,6 +84,8 @@ func _physics_process(delta):
 	handle_movement(delta)
 
 func handle_movement(delta):
+	if is_dead:
+		return
 	# Reset horizontal velocity
 	velocity.x = 0
 	velocity.z = 0

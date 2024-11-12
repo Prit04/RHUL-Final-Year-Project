@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc12pk3k2hcoi"]
+
+[ext_resource type="PackedScene" uid="uid://c32di2fuq4ls3" path="res://player.tscn" id="1_ulxts"]
+[ext_resource type="PackedScene" uid="uid://bfo8vu5ys4rv0" path="res://hud.tscn" id="2_8egin"]
+[ext_resource type="Script" path="res://EnemySpawner.gd" id="3_sci6q"]
+[ext_resource type="PackedScene" uid="uid://0t3vrrhcap37" path="res://enemy.tscn" id="4_5d3hb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37ilg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u0b5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4etjj"]
+albedo_color = Color(0.101961, 1, 1, 1)
+backlight = Color(1, 1, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_37ilg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 2.5, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_u0b5d")
+surface_material_override/0 = SubResource("StandardMaterial3D_4etjj")
+
+[node name="Player" parent="." instance=ExtResource("1_ulxts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="HUD" parent="." instance=ExtResource("2_8egin")]
+
+[node name="EnemySpawner" type="Node" parent="."]
+script = ExtResource("3_sci6q")
+enemy_scene = ExtResource("4_5d3hb")
+max_enemies = 6
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.274469, -0.951482, 0.139102, -0.328331, 0.228694, 0.91646, -0.903806, 0.205868, -0.37517, 5.11546, 52.7217, -13.7968)
+light_energy = 0.838
+sky_mode = 1
