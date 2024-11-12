@@ -1,8 +1,8 @@
 extends Node
 
-@export var enemy_scene: PackedScene  # Drag your enemy scene here
-@export var spawn_interval: float = 3.0  # Time between spawns
-@export var max_enemies: int = 5  # Max number of enemies on the map
+@export var enemy_scene: PackedScene  
+@export var spawn_interval: float = 3.0  
+@export var max_enemies: int = 5  
 
 var enemy_count = 0
 

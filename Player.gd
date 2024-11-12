@@ -33,7 +33,7 @@ func die():
 		show_game_over()
 
 func show_game_over():
-	var game_over_scene = load("res://GameOver.tscn")  # Ensure the path is correct
+	var game_over_scene = load("res://GameOver.tscn")  
 	var game_over_instance = game_over_scene.instantiate()
 	get_tree().current_scene.add_child(game_over_instance)
 
@@ -68,12 +68,12 @@ func get_enemies_in_range() -> Array:
 	var query = PhysicsShapeQueryParameters3D.new()
 	query.shape_rid = shape.get_rid()  # Use the RID of the shape
 	query.transform = global_transform  # Use the player's global transform to place the sphere
-	query.collision_mask = 1  # Adjust this based on your collision layers setup
+	query.collision_mask = 1 
 	
 	var result = space_state.intersect_shape(query)
 	
 	for hit in result:
-		if hit.collider is CharacterBody3D:
+		if hit.collider != self and hit.collider.has_method("take_damage"):
 			enemies_in_range.append(hit.collider)
 	
 	return enemies_in_range
@@ -90,16 +90,16 @@ func handle_movement(delta):
 	velocity.x = 0
 	velocity.z = 0
 	
-	# Input for WASD or Arrow keys
+
 	var input_dir = Vector3.ZERO
 	
-	if Input.is_action_pressed("move_forward"):  # W or Up
+	if Input.is_action_pressed("move_forward"):
 		input_dir.z += 1
-	if Input.is_action_pressed("move_back"):     # S or Down
+	if Input.is_action_pressed("move_back"):     
 		input_dir.z -= 1
-	if Input.is_action_pressed("move_left"):     # A or Left
+	if Input.is_action_pressed("move_left"):  
 		input_dir.x += 1
-	if Input.is_action_pressed("move_right"):    # D or Right
+	if Input.is_action_pressed("move_right"):   
 		input_dir.x -= 1
 
 	# Normalize the direction to avoid faster diagonal movement

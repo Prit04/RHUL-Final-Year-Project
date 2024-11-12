@@ -1,7 +1,7 @@
 extends Camera3D
 
 
-@export var target: CharacterBody3D  # Assign your CharacterBody3D here
+@export var target: CharacterBody3D  
 @export var height: float = 8.0
 @export var distance: float = -8.0
 @export var smooth_time: float = 0.1
