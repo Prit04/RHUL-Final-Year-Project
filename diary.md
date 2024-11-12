@@ -94,7 +94,7 @@ I implemented a very basic combat system where the player presses the space bar 
 ### 28/10/2024
 
  To start off the new week i spent some time refelcting on what had been done and what needs doing, consulting the timeline i created in the project plan. I have realsied that functionality wise i am ahead on what i had predicted which is a good sign, which means i can spend some time on finding and implementing assets and animations into the game.
-v<br /> <br />I have visted webisted such as Kenney and itch.io for free assets to use.
+<br /> <br />I have visted webisted such as Kenney and itch.io for free assets to use.
 
 
 ### 28/10/2024
@@ -104,3 +104,4 @@ I have started to work on the enemy attack script.
 
 ### 12/11/2024
 Coming back to the project i have finished the enemy attacks fucntion and their pathfinding. Fixed errors that arsied such as the players attack mechanism affetcing the players health instead of the enemies. Also removed redundant comments left for myself when starting off as they no longer serve any purpose.
+<br /> <br />The next steps to follow is to work on the procedural generation of the dungeon itself and finalise and apply the assets.
