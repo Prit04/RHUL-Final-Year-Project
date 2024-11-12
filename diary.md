@@ -100,3 +100,7 @@ v<br /> <br />I have visted webisted such as Kenney and itch.io for free assets 
 ### 28/10/2024
 
 I have started to work on the enemy attack script.
+
+
+### 12/11/2024
+Coming back to the project i have finished the enemy attacks fucntion and their pathfinding. Fixed errors that arsied such as the players attack mechanism affetcing the players health instead of the enemies. Also removed redundant comments left for myself when starting off as they no longer serve any purpose.
