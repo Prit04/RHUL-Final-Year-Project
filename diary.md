@@ -105,3 +105,7 @@ I have started to work on the enemy attack script.
 ### 12/11/2024
 Coming back to the project i have finished the enemy attacks fucntion and their pathfinding. Fixed errors that arsied such as the players attack mechanism affetcing the players health instead of the enemies. Also removed redundant comments left for myself when starting off as they no longer serve any purpose.
 <br /> <br />The next steps to follow is to work on the procedural generation of the dungeon itself and finalise and apply the assets.
+
+
+### 18/11/2024
+I have been spending my time researching procedural map generation these past few days and watching youtube videos on it. Im gaining a better understadning of how to implement it and the usage of it.
