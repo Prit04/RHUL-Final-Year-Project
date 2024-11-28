@@ -109,3 +109,6 @@ Coming back to the project i have finished the enemy attacks fucntion and their 
 
 ### 18/11/2024
 I have been spending my time researching procedural map generation these past few days and watching youtube videos on it. Im gaining a better understadning of how to implement it and the usage of it.
+
+### 28/11/2024
+I have been making sereate projects to test the procedural generation. so far, its very simple and not exaclty how i want it and figuring out how to implement it into my code and project is difficult.
