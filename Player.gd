@@ -12,6 +12,8 @@ var current_health = 100
 
 var is_dead = false
 
+@onready var animation_player = $Knight/AnimationPlayer
+
 func take_damage(damage):
 	if is_dead:
 		return
@@ -25,7 +27,8 @@ func die():
 	if is_dead:
 		return
 	is_dead = true
-	print("player has died.")
+	animation_player.play("Death_B")
+	print("The player has died")
 	
 	var hud = get_node_or_null("/root/StaticBody3D/HUD")
 	if hud:
@@ -48,6 +51,7 @@ func _process(delta):
 		return
 	if Input.is_action_just_pressed("attack"):
 		attack()
+		animation_player.play("1H_Melee_Attack_Chop")
 
 func attack():
 	var enemies_in_range = get_enemies_in_range()
@@ -115,3 +119,10 @@ func handle_movement(delta):
 
 	# Move the player using the built-in move_and_slide() method
 	move_and_slide()
+	
+	if is_dead:
+		return
+	elif velocity.length() > 0:
+		animation_player.play("Walking_A")
+	else:
+		animation_player.play("Idle")
