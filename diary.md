@@ -112,3 +112,7 @@ I have been spending my time researching procedural map generation these past fe
 
 ### 28/11/2024
 I have been making sereate projects to test the procedural generation. so far, its very simple and not exaclty how i want it and figuring out how to implement it into my code and project is difficult.
+
+### 04/12/2024
+
+I have found some assets and animations to use as placeholder for now for my game. i have imported them and tested to see if they are compatible, which they are.
