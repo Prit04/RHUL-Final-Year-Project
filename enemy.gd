@@ -1,13 +1,16 @@
 extends CharacterBody3D
 
+# Enemy attributes
 var health = 50
 var speed = 2.0
 
+# Attack attributes
 var attack_damage = 10
 var attack_range = 2.0
 var attack_cooldown = 1.0
 var can_attack: bool = true
 
+# Reference to the player
 @onready var player = get_node("/root/StaticBody3D/Player")
 
 func _physics_process(delta: float) -> void:
