@@ -110,10 +110,20 @@ Coming back to the project i have finished the enemy attacks fucntion and their 
 ### 18/11/2024
 I have been spending my time researching procedural map generation these past few days and watching youtube videos on it. Im gaining a better understadning of how to implement it and the usage of it.
 
+
 ### 28/11/2024
 I have been making separate projects to test the procedural generation. so far, its very simple and not exaclty how i want it and figuring out how to implement it into my code and project is difficult.
+
 
 ### 04/12/2024
 
 I have found some assets and animations to use as placeholder for now for my game. i have imported them and tested to see if they are compatible, which they are.
 <br /> <br />I have added simple animation and the model to the player, which are functional and work, only thing that isnt is the attack animation. Once this is done i will continue work on my separate file on procedural map generation.
+
+
+### 11/12/2024
+Today i had my project demonstration for the interim submission. 
+
+
+### 12/12/2024
+The interim report is all written and the creation of the video demo will be done as well. All ready for the submission date on the 13th.
