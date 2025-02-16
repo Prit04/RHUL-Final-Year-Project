@@ -127,3 +127,7 @@ Today i had my project demonstration for the interim submission.
 
 ### 12/12/2024
 The interim report is all written and the creation of the video demo will be done as well. All ready for the submission date on the 13th.
+
+
+### 16/2/2025
+During the Christmas break i conducted in house play testing to gather inital feedback on my game, this helped identify key areas for improvement and things that are working well so far, this is going to guide me for developemen the next few weeks.
