@@ -1,6 +1,9 @@
 extends Control
 
 func _ready():
+	if $MenuAnimationPlayer.has_animation("fade_in"):
+		$MenuAnimationPlayer.play("fade_in")
+
 	$VBoxContainer/StartButton.pressed.connect(_on_start_button_pressed)
 	$VBoxContainer/OptionsButton.pressed.connect(_on_options_button_pressed)
 	$VBoxContainer/ExitButton.pressed.connect(_on_exit_button_pressed)
