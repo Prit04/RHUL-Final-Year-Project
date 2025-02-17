@@ -2,7 +2,7 @@ extends Node
 
 @export var enemy_scene: PackedScene  
 @export var spawn_interval: float = 3.0  
-@export var max_enemies: int = 5  
+@export var max_enemies: int = 0
 
 var enemy_count = 0
 
