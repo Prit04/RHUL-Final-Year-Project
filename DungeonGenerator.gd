@@ -62,11 +62,35 @@ func spawn_room() -> Node3D:
 			new_room_instance.global_position = new_pos
 			used_positions[new_pos] = true
 			add_child(new_room_instance)
+			link_doors(spawned_rooms[-1], new_room_instance, offset)
 			return new_room_instance
 
 		attempts += 1
 
 	return null  
+
+func link_doors(prev_room, new_room, offset):
+	# Find the doors in each room
+	var prev_door = get_doorway(prev_room, offset)
+	var new_door = get_doorway(new_room, -offset)
+
+	if prev_door and new_door:
+		prev_door.target_room = new_door.get_path()
+		new_door.target_room = prev_door.get_path()
+
+func get_doorway(room, offset) -> Area3D:
+	# Find the correct doorway based on direction
+	for child in room.get_children():
+		if child is Area3D:
+			if offset == Vector3(10, 0, 0) and child.name == "Doorway_East":
+				return child
+			if offset == Vector3(-10, 0, 0) and child.name == "Doorway_West":
+				return child
+			if offset == Vector3(0, 0, 10) and child.name == "Doorway_North":
+				return child
+			if offset == Vector3(0, 0, -10) and child.name == "Doorway_South":
+				return child
+	return null
 
 func choose_random_direction() -> Vector3:
 	var directions = [
