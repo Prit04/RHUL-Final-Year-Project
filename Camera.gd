@@ -1,19 +1,21 @@
 extends Camera3D
 
-# Camera follows the player
-
-@export var target: CharacterBody3D # The target the camera will follow
-@export var height: float = 8.0 # The height of the camera behind the target
-@export var distance: float = -8.0 # Distance of the camera from the target
-@export var smooth_time: float = 0.1 # The time factor for smooth interpolation
+@export var target: CharacterBody3D
+@export var height: float = 10.0
+@export var distance: float = -15.0
+@export var zoom_speed: float = 2.0  # Adjust zoom speed
+@export var min_distance: float = -25.0  # Max zoom out
+@export var max_distance: float = -10.0  # Min zoom in
+@export var smooth_time: float = 0.1
 
 func _process(delta):
 	if target:
-		# Calculate the desired position above and behind the player
+		# Handle Zooming with Mouse Wheel
+		if Input.is_action_just_pressed("zoom_in"):
+			distance = max(distance + zoom_speed, max_distance)
+		if Input.is_action_just_pressed("zoom_out"):
+			distance = min(distance - zoom_speed, min_distance)
+
 		var target_position = target.global_position + Vector3(0, height, distance)
-		
-		# Smoothly interpolate towards the target position
 		global_position = global_position.lerp(target_position, smooth_time)
-		
-		# Orients the camera to to look at the target
 		look_at(target.global_position, Vector3.UP)
