@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvsltfaik71ik"]
+[gd_scene load_steps=6 format=3 uid="uid://cvsltfaik71ik"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bw2e6"]
+albedo_color = Color(1, 0.486275, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pqxbt"]
 
@@ -6,10 +9,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nknvg"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_guu4e"]
+
 [node name="Room" type="Node3D"]
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bw2e6")
 mesh = SubResource("BoxMesh_pqxbt")
 
 [node name="wall" type="MeshInstance3D" parent="."]
@@ -34,3 +40,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26472, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 0.2, -0.175473, 0.181756, -4.10764)
 shape = SubResource("BoxShape3D_nknvg")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0642885, 0.997931, 0, -0.997931, -0.0642885, 1.11595, 27.7267, 0)
+
+[node name="FloorCollision" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0130649, 0.00514984, 0.087862)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCollision"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0.649773, 0)
+shape = SubResource("BoxShape3D_guu4e")
