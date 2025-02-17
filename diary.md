@@ -131,3 +131,7 @@ The interim report is all written and the creation of the video demo will be don
 
 ### 16/2/2025
 During the Christmas break i conducted in house play testing to gather inital feedback on my game, this helped identify key areas for improvement and things that are working well so far, this is going to guide me for developemen the next few weeks.
+
+
+### 17/2/2025
+Today the main goal was to get the procedural generation sorted.I ensured that rooms spawn dynamically without overlapping, and linked doors correctly between them, so rooms can be travered. I also implemented a player camera system with zoom functionality to improve visibility in the isometric view.
