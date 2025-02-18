@@ -137,3 +137,7 @@ During the Christmas break i conducted in house play testing to gather inital fe
 Today the main goal was to get the procedural generation sorted.I ensured that rooms spawn dynamically without overlapping, and linked doors correctly between them, so rooms can be travered. I also implemented a player camera system with zoom functionality to improve visibility in the isometric view.
 <br /> <br />
 I also rebuilt the main menu, restructuring the button layout using VBoxContainer for better organization. To improve UI polish, I added a fade-in animation for the menu using AnimationPlayer and the Modulate property, making transitions feel smoother, alogn with a background image for the main menu.
+
+
+### 18/2/2025
+Today i plan on revamnping the enemy spwning and AI to work with the procedurally generated dungeon.
