@@ -146,3 +146,4 @@ Today i plan on revamnping the enemy spwning and AI to work with the procedurall
 
 ### 20/2/2025
 Today i plan to fix the enemy spawn issue, then work on actually finding assets for the game, build different rooms and get a proper UI implemented.
+<br /> <br />I have added a loading screen to my game with my logo at the start.
