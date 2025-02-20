@@ -141,3 +141,8 @@ I also rebuilt the main menu, restructuring the button layout using VBoxContaine
 
 ### 18/2/2025
 Today i plan on revamnping the enemy spwning and AI to work with the procedurally generated dungeon.
+<br /> <br />I worked on this and have got it partially working however it is highly bugegd right now enemys are spawning outside the allocated dunegeon rooms.
+
+
+### 20/2/2025
+Today i plan to fix the enemy spawn issue, then work on actually finding assets for the game, build different rooms and get a proper UI implemented.
