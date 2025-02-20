@@ -2,7 +2,8 @@ extends Node3D
 
 @export var starting_room_scene: PackedScene  
 @export var room_scenes: Array[PackedScene]  
-@export var player_scene: PackedScene  
+@export var player_scene: PackedScene
+@export var enemy_scene: PackedScene
 
 @export var max_rooms: int = 5  
 
@@ -40,7 +41,7 @@ func generate_dungeon():
 
 	#  Spawn Additional Rooms
 	for i in range(max_rooms - 1):
-		var new_room = spawn_room()
+		var new_room = await spawn_room()
 		if new_room:
 			spawned_rooms.append(new_room)
 
@@ -50,7 +51,7 @@ func spawn_room() -> Node3D:
 
 	while attempts < 10:
 		if room_scenes.is_empty():
-			return null 
+			return null  
 
 		var random_room = room_scenes.pick_random()
 		new_room_instance = random_room.instantiate()
@@ -62,12 +63,25 @@ func spawn_room() -> Node3D:
 			new_room_instance.global_position = new_pos
 			used_positions[new_pos] = true
 			add_child(new_room_instance)
+
+			# Assign enemy scene before linking doors
+			if new_room_instance.has_method("set_enemy_scene"):
+				new_room_instance.set_enemy_scene(enemy_scene)
+
 			link_doors(spawned_rooms[-1], new_room_instance, offset)
+
+			#  Wait before spawning enemies (ensures room is fully placed)
+			await get_tree().process_frame
+			if new_room_instance.has_method("spawn_enemies"):
+				new_room_instance.spawn_enemies()
+
+			print("Room placed at:", new_room_instance.global_position)
 			return new_room_instance
 
 		attempts += 1
 
 	return null  
+
 
 func link_doors(prev_room, new_room, offset):
 	# Find the doors in each room
