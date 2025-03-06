@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="FinalYearProject"
-run/main_scene="res://LoadingScreen.tscn"
+run/main_scene="res://control.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

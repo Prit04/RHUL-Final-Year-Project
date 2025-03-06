@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d28ag50dce448"
+path="res://.godot/imported/bar_outercorner.obj-8a95772e5596c9cd69eda8856bf09990.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bar_outercorner.obj-8a95772e5596c9cd69eda8856bf09990.mesh"]
+
+source_file="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/obj/bar_outercorner.obj"
+dest_files=["res://.godot/imported/bar_outercorner.obj-8a95772e5596c9cd69eda8856bf09990.mesh", "res://.godot/imported/bar_outercorner.obj-8a95772e5596c9cd69eda8856bf09990.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

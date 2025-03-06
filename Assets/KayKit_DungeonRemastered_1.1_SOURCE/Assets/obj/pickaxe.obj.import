@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8plg3c8n7mp2"
+path="res://.godot/imported/pickaxe.obj-a8b39173ba4e5729cdba1b8ad92375a1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pickaxe.obj-a8b39173ba4e5729cdba1b8ad92375a1.mesh"]
+
+source_file="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/obj/pickaxe.obj"
+dest_files=["res://.godot/imported/pickaxe.obj-a8b39173ba4e5729cdba1b8ad92375a1.mesh", "res://.godot/imported/pickaxe.obj-a8b39173ba4e5729cdba1b8ad92375a1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
