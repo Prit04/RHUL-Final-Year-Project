@@ -147,3 +147,7 @@ Today i plan on revamnping the enemy spwning and AI to work with the procedurall
 ### 20/2/2025
 Today i plan to fix the enemy spawn issue, then work on actually finding assets for the game, build different rooms and get a proper UI implemented.
 <br /> <br />I have added a loading screen to my game with my logo at the start.
+
+
+### 20/2/2025
+I have got assets for my game and have created dungeon rooms with the assets, i now need to implement that room with the procedural generation code that i have, after that i will work on the UI before proceeding with further features.
