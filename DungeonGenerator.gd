@@ -1,7 +1,9 @@
 extends Node3D
 
 @export var starting_room_scene: PackedScene  
-@export var room_scenes: Array[PackedScene]  
+@export var room_scenes: Array[PackedScene]= [
+	preload("res://dungeonRoom.tscn")  
+	]
 @export var player_scene: PackedScene
 @export var enemy_scene: PackedScene
 
