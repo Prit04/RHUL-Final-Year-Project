@@ -55,9 +55,11 @@ script = ExtResource("1_cn34s")
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.986947, 1.00745)
+offset_left = 0.768251
+offset_top = 1.56222
+offset_right = 890.768
+offset_bottom = 511.562
+scale = Vector2(0.995563, 0.998713)
 texture = ExtResource("2_sjwi3")
 stretch_mode = 5
 

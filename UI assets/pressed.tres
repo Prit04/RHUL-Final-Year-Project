@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c7urheojdg50x"]
+
+[ext_resource type="Texture2D" uid="uid://b8nk2j827bd4q" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Spritesheets/Spritesheet_UI_Flat_Animated.png" id="1_vyeo8"]
+
+[resource]
+atlas = ExtResource("1_vyeo8")
+region = Rect2(0, 68, 32, 28)
