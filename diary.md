@@ -149,5 +149,9 @@ Today i plan to fix the enemy spawn issue, then work on actually finding assets 
 <br /> <br />I have added a loading screen to my game with my logo at the start.
 
 
-### 20/2/2025
+### 11/3/2025
 I have got assets for my game and have created dungeon rooms with the assets, i now need to implement that room with the procedural generation code that i have, after that i will work on the UI before proceeding with further features.
+
+
+### 22/3/2025
+The procedural generation with the new asseted dungeon now works. time to fix and improve the player asset and movemtn and animations.
