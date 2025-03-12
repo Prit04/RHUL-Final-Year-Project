@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # Movement variables
-var speed = 5.0
-var gravity = -9.8  # Optional, for vertical movement
+@export var walk_speed: float = 5.0
+@export var run_speed: float = 10.0
 
 var attack_range = 2.0
 var attack_damage = 10 
@@ -49,9 +49,17 @@ func update_health_ui() -> void:
 func _process(delta):
 	if is_dead:
 		return
+
 	if Input.is_action_just_pressed("attack"):
+		print(" Attack button (Space) pressed!")  # Debug
 		attack()
-		animation_player.play("1H_Melee_Attack_Chop")
+
+		animation_player.stop()
+		animation_player.play("1H_Melee_Attack_Slice_Diagonal", -1, 1.5)
+		animation_player.seek(0, true)  # Force restart from frame 0
+		print(" Playing attack animation: 1H_Melee_Attack_Slice_Diagonal")
+
+
 
 func attack():
 	var enemies_in_range = get_enemies_in_range()
@@ -63,24 +71,24 @@ func attack():
 func get_enemies_in_range() -> Array:
 	var enemies_in_range = []
 	var space_state = get_world_3d().direct_space_state
-	
-	# Create a shape for the query (a sphere for melee range detection)
-	var shape = SphereShape3D.new()
-	shape.radius = attack_range  # Set the radius of the sphere
-	
-	# Create the query parameters
+
+	# Create a shape for the query (Sphere for melee attack range)
 	var query = PhysicsShapeQueryParameters3D.new()
-	query.shape_rid = shape.get_rid()  # Use the RID of the shape
-	query.transform = global_transform  # Use the player's global transform to place the sphere
-	query.collision_mask = 1 
-	
+	query.shape = SphereShape3D.new()
+	query.shape.radius = attack_range
+	query.transform = global_transform
+
+
+	query.collision_mask = 2  # Set this to enemy collision layer when it comes to it (check project settings)
+
 	var result = space_state.intersect_shape(query)
-	
+
 	for hit in result:
 		if hit.collider != self and hit.collider.has_method("take_damage"):
 			enemies_in_range.append(hit.collider)
-	
+
 	return enemies_in_range
+
 
 
 
@@ -90,13 +98,9 @@ func _physics_process(delta):
 func handle_movement(delta):
 	if is_dead:
 		return
-	# Reset horizontal velocity
-	velocity.x = 0
-	velocity.z = 0
-	
 
 	var input_dir = Vector3.ZERO
-	
+
 	if Input.is_action_pressed("move_forward"):
 		input_dir.z += 1
 	if Input.is_action_pressed("move_back"):     
@@ -106,23 +110,48 @@ func handle_movement(delta):
 	if Input.is_action_pressed("move_right"):   
 		input_dir.x -= 1
 
-	# Normalize the direction to avoid faster diagonal movement
-	if input_dir != Vector3.ZERO:
+
+	# Normalize movement to avoid diagonal speed boost
+	if input_dir.length() > 0:
 		input_dir = input_dir.normalized()
 
-	# Apply movement input to velocity
-	velocity.x = input_dir.x * speed
-	velocity.z = input_dir.z * speed
+		# Check if sprinting
+		var current_speed = walk_speed
+		if Input.is_action_pressed("sprint"): 
+			current_speed = run_speed
 
-	# Apply gravity if needed (optional, since top-down games don't always need this)
-	velocity.y += gravity * delta
+		# Convert movement direction into rotation
+		var target_rotation_y = atan2(input_dir.x, input_dir.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation_y, 10.0 * delta)
 
-	# Move the player using the built-in move_and_slide() method
+		# Apply movement speed
+		velocity.x = input_dir.x * current_speed
+		velocity.z = input_dir.z * current_speed
+	else:
+		#Stop the player when no input is detected
+		velocity = Vector3.ZERO  
+
 	move_and_slide()
+
+	# Play correct animation
+	update_animation(input_dir)
+
+
 	
+func update_animation(input_dir):
 	if is_dead:
 		return
-	elif velocity.length() > 0:
-		animation_player.play("Walking_A")
+
+	if input_dir.length() > 0:
+		var is_sprinting = Input.is_action_pressed("sprint")
+
+		#  Choose correct animation based on sprinting or walking
+		if is_sprinting:
+			if animation_player.current_animation != "Running_A":
+				animation_player.play("Running_A")  #  Sprinting forward
+		else:
+			if animation_player.current_animation != "Walking_A":
+				animation_player.play("Walking_A")  #  Normal walking
 	else:
-		animation_player.play("Idle")
+		if animation_player.current_animation != "Idle":
+			animation_player.play("Idle")  #  Idle animation when not moving
