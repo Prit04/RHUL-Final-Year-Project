@@ -156,3 +156,4 @@ I have got assets for my game and have created dungeon rooms with the assets, i 
 ### 22/3/2025
 The procedural generation with the new asseted dungeon now works. time to fix and improve the player asset and movemtn and animations.
 <br /> <br />I have improved the player movement by having them face the correct way they are moving. I have also implemented a player sprint by pressing the shift button. I tried to get the attack animation to work when spcae is pressed bu this is bugged, and have pushed it to the side to work on it when i get to working on the attacking and enemies. Next i need to improve the camera as it  is a bit jittery when moving and set a zoom limit. then work on the  main menus along with the options menu.
+<br /> <br />I have been havign serious probelms with the camera so have reverted back to standard and will now focus on UI
