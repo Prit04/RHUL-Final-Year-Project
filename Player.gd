@@ -56,7 +56,7 @@ func _process(delta):
 
 		animation_player.stop()
 		animation_player.play("1H_Melee_Attack_Slice_Diagonal", -1, 1.5)
-		animation_player.seek(0, true)  # Force restart from frame 0
+		animation_player.seek(0, true)  # Force restart from frame 0, still broken
 		print(" Playing attack animation: 1H_Melee_Attack_Slice_Diagonal")
 
 

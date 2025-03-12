@@ -7,7 +7,7 @@ extends Node3D
 @export var player_scene: PackedScene
 @export var enemy_scene: PackedScene
 
-@export var max_rooms: int = 5  
+@export var max_rooms: int = 10
 
 var spawned_rooms = []  
 var used_positions = {}  
