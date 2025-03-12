@@ -26,7 +26,7 @@ func generate_dungeon():
 	var start_room = starting_room_scene.instantiate()
 	add_child(start_room)
 
-	# Ensure it's placed properly in the tree before setting global position
+	
 	await get_tree().process_frame  
 	start_room.global_position = Vector3.ZERO
 
@@ -36,10 +36,18 @@ func generate_dungeon():
 	#  Spawn Player
 	if player_scene:
 		player_instance = player_scene.instantiate()
-		player_instance.global_position = start_room.global_position + Vector3(0, 1, 0)
+
+		#  Place player at the spawn point of the first room
+		var spawn_point = start_room.find_child("PlayerSpawn", true, false)
+		if spawn_point:
+			player_instance.global_position = spawn_point.global_position
+		else:
+			player_instance.global_position = start_room.global_position + Vector3(0, 1, 0)
+
 		add_child(player_instance)
+		print("Player spawned at:", player_instance.global_position)
 	else:
-		push_error("⚠️ ERROR: No player scene assigned in Inspector!")
+		push_error("ERROR: No player scene assigned in Inspector!")
 
 	#  Spawn Additional Rooms
 	for i in range(max_rooms - 1):
@@ -48,41 +56,34 @@ func generate_dungeon():
 			spawned_rooms.append(new_room)
 
 func spawn_room() -> Node3D:
-	var attempts = 0
-	var new_room_instance
+	if room_scenes.is_empty():
+		push_error("ERROR: No rooms assigned to 'room_scenes' in Inspector!")
+		return null  
 
-	while attempts < 10:
-		if room_scenes.is_empty():
-			return null  
+	var selected_room = room_scenes.pick_random()
+	print("Spawning Room Scene:", selected_room.resource_path)
 
-		var random_room = room_scenes.pick_random()
-		new_room_instance = random_room.instantiate()
+	var new_room_instance = selected_room.instantiate()
+	if not new_room_instance:
+		push_error("ERROR: Failed to instantiate room!")
+		return null  
 
-		var offset = choose_random_direction()
-		var new_pos = spawned_rooms[-1].global_position + offset
+	var offset = choose_random_direction()
+	var new_pos = spawned_rooms[-1].global_position + offset
 
-		if not used_positions.has(new_pos):
-			new_room_instance.global_position = new_pos
-			used_positions[new_pos] = true
-			add_child(new_room_instance)
+	if not used_positions.has(new_pos):
+		new_room_instance.global_position = new_pos
+		used_positions[new_pos] = true
+		add_child(new_room_instance)
 
-			# Assign enemy scene before linking doors
-			if new_room_instance.has_method("set_enemy_scene"):
-				new_room_instance.set_enemy_scene(enemy_scene)
+		print("Room placed at:", new_room_instance.global_position)
 
-			link_doors(spawned_rooms[-1], new_room_instance, offset)
-
-			#  Wait before spawning enemies (ensures room is fully placed)
-			await get_tree().process_frame
-			if new_room_instance.has_method("spawn_enemies"):
-				new_room_instance.spawn_enemies()
-
-			print("Room placed at:", new_room_instance.global_position)
-			return new_room_instance
-
-		attempts += 1
+		return new_room_instance
+	else:
+		print("Position already occupied!")
 
 	return null  
+
 
 
 func link_doors(prev_room, new_room, offset):
