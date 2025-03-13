@@ -153,9 +153,14 @@ Today i plan to fix the enemy spawn issue, then work on actually finding assets 
 I have got assets for my game and have created dungeon rooms with the assets, i now need to implement that room with the procedural generation code that i have, after that i will work on the UI before proceeding with further features.
 
 
-### 22/3/2025
+### 12/3/2025
 The procedural generation with the new asseted dungeon now works. time to fix and improve the player asset and movemtn and animations.
 <br /> <br />I have improved the player movement by having them face the correct way they are moving. I have also implemented a player sprint by pressing the shift button. I tried to get the attack animation to work when spcae is pressed bu this is bugged, and have pushed it to the side to work on it when i get to working on the attacking and enemies. Next i need to improve the camera as it  is a bit jittery when moving and set a zoom limit. then work on the  main menus along with the options menu.
 <br /> <br />I have been havign serious probelms with the camera so have reverted back to standard and will now focus on UI.
 <br /> <br />I have created a new menu background and introduction animation, i will now add assets to my buttons.
 <br /> <br />I have added the button assets to my main menu with some decent effects. i will next work on soritng out the wall colission and make sure the doors in the dungeon are functional.
+
+
+
+### 13/3/2025
+Today was a mix of progress and frustration while working on the dungeon generation. I focused on refining how rooms spawn, making sure they align properly and connect through doors without gaps. I spent a lot of time trying to get trap rooms to generate correctly, ensuring they only have one entrance, but they kept getting rejected due to a lack of valid placements so i reverted back to them having 4 rooms. At one point, the dungeon was only spawning rooms in a straight line, which I had to fix by shuffling the placement directions. Another issue popped up where only one room would spawn, forcing me to roll back to a previous working version. Despite the setbacks, I managed to get the dungeon generator functioning again, though there are still some alignment issues with doors and occasional room clipping. Tomorrow, I’ll refine the trap room placement, work on adding more room variety like puzzle and loot rooms, and start planning the loot and inventory system.
