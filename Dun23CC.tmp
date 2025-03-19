@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpbxiff6dejs1"]
+
+[ext_resource type="Script" path="res://DungeonGenerator.gd" id="1_82w1m"]
+[ext_resource type="PackedScene" uid="uid://bhhr350rm8v24" path="res://dungeonRoom.tscn" id="2_jd02l"]
+[ext_resource type="PackedScene" uid="uid://c32di2fuq4ls3" path="res://player.tscn" id="3_v4glu"]
+[ext_resource type="PackedScene" uid="uid://0t3vrrhcap37" path="res://enemy.tscn" id="4_y7jp2"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_82w1m")
+starting_room_scene = ExtResource("2_jd02l")
+player_scene = ExtResource("3_v4glu")
+enemy_scene = ExtResource("4_y7jp2")
