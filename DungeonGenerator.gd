@@ -63,47 +63,50 @@ func spawn_room() -> Node3D:
 		return null  
 
 	var selected_room = room_scenes.pick_random()
-
-	# Prioritize spawning a trap room if possible
-	if trap_room_count < max_trap_rooms and randi() % 3 == 0:
-		print("Attempting to spawn a TRAP ROOM")
-		selected_room = preload("res://room_trap.tscn")
-		trap_room_count += 1
-
 	var new_room_instance = selected_room.instantiate()
+
 	if not new_room_instance:
 		push_error("ERROR: Failed to instantiate room!")
 		return null  
 
 	var room_size = get_room_size(new_room_instance)
-	var max_attempts = 10
-	var attempt = 0
+	var offset = choose_valid_room_offset(room_size)
+	var new_pos = spawned_rooms[-1].global_position + offset  
 
-	while attempt < max_attempts:
-		var offset = choose_valid_room_offset(room_size)
-		var new_pos = spawned_rooms[-1].global_position + offset  
+	# ✅ Snap to grid
+	new_pos.x = snapped(new_pos.x, room_size.x)  
+	new_pos.z = snapped(new_pos.z, room_size.z)  
 
-		# Snap to grid to prevent floating/clipping
-		new_pos.x = snapped(new_pos.x, room_size.x)  
-		new_pos.z = snapped(new_pos.z, room_size.z)  
+	if not used_positions.has(new_pos) and detect_open_door(spawned_rooms[-1]):
+		new_room_instance.global_position = new_pos
+		used_positions[new_pos] = true
+		add_child(new_room_instance)
 
-		# Check if position is valid
-		if not used_positions.has(new_pos) and detect_open_door(spawned_rooms[-1]):
-			new_room_instance.global_position = new_pos
-			used_positions[new_pos] = true
-			add_child(new_room_instance)
+		print("✅ Room placed at:", new_room_instance.global_position, " with size:", room_size)
 
-			print("Room placed at:", new_room_instance.global_position, " with size:", room_size)
+		# ✅ Spawn enemies inside this room
+		spawn_enemies_in_room(new_room_instance)
 
-			# Link doors so they always match
-			link_doors(spawned_rooms[-1], new_room_instance, offset)
+		link_doors(spawned_rooms[-1], new_room_instance, offset)
 
-			return new_room_instance
-		
-		attempt += 1
-
-	print("No valid placement found after", max_attempts, "attempts.")
+		return new_room_instance
+	
 	return null
+
+func spawn_enemies_in_room(room: Node3D):
+	var spawn_container = room.find_child("EnemySpawnPoints", true, false)
+	if spawn_container:
+		var spawn_points = spawn_container.get_children()
+		spawn_points.shuffle()
+
+		var enemies_to_spawn = min(2, spawn_points.size())  # Limit to 2 enemies per room
+		for i in range(enemies_to_spawn):
+			if enemy_scene:
+				var enemy_instance = enemy_scene.instantiate()
+				enemy_instance.global_position = spawn_points[i].global_position
+				room.add_child(enemy_instance)
+				print("⚔️ Enemy spawned at:", enemy_instance.global_position)
+
 
 func choose_valid_room_offset(room_size: Vector3) -> Vector3:
 	var possible_directions = [

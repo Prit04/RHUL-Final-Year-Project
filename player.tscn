@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckcr4"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(-0.999987, 0, -0.00513113, 0, 1, 0, 0.00513113, 0, -0.999987, 0.00140941, 0.0138233, -0.00560951)
 script = ExtResource("1_2d50e")
 
@@ -88,10 +88,10 @@ transform = Transform3D(4.05032e-07, 0.262863, 0.964833, 0.999999, -2.9198e-06, 
 visible = false
 
 [node name="1H_Sword" parent="Knight/Rig/Skeleton3D" index="5"]
-transform = Transform3D(-5.58357e-07, -0.149894, 0.988701, 0.999999, -2.05808e-07, 3.57628e-07, 4.87279e-07, 0.988701, 0.149894, -0.496054, 0.641029, 0.139528)
+transform = Transform3D(-4.98752e-07, -0.149894, 0.988701, 0.999999, -2.05809e-07, 2.68221e-07, 4.87279e-07, 0.988701, 0.149894, -0.496054, 0.641029, 0.139528)
 
 [node name="2H_Sword" parent="Knight/Rig/Skeleton3D" index="6"]
-transform = Transform3D(-5.74097e-07, -0.149894, 0.988701, 0.999999, -2.20542e-07, 3.71314e-07, 4.99794e-07, 0.988701, 0.149894, -0.496054, 0.641029, 0.139528)
+transform = Transform3D(-5.14492e-07, -0.149894, 0.988701, 0.999999, -2.20542e-07, 2.81907e-07, 4.99794e-07, 0.988701, 0.149894, -0.496054, 0.641029, 0.139528)
 
 [node name="Knight_Helmet" parent="Knight/Rig/Skeleton3D" index="7"]
 transform = Transform3D(0.99972, -1.40143e-09, 0.0236466, 1.39341e-09, 1, 3.55686e-10, -0.0236466, -3.22637e-10, 0.99972, 4.69869e-07, 1.20229, -1.19779e-07)
