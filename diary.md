@@ -174,3 +174,4 @@ Today I was working on getting the dungeon geenration to finally work as intende
 
 ### 22/3/2025
 So far i have found good assets to use for my enemies and have implemented a basic spawning routine for them in the dunegeon, along with fixign their AI, next i need to polish the player hud and add it so i can attack enemies and enemeis can attack the player.
+<br /> <br />I polished the enemy AI and animation system. I fixed the rotation so they now properly face the player, and got all the animations working in sync — including the floor idle pose, the wake-up animation, walking, attacking, dying, and the new idle combat pose when the player leaves their vision range. I also refined their behavior so they stop chasing when out of range but re-engage properly when the player returns, and prevented them from constantly walking into the player during combat.
