@@ -169,3 +169,8 @@ Today was a mix of progress and frustration while working on the dungeon generat
 ### 19/3/2025
 Today I was working on getting the dungeon geenration to finally work as intended. I discovered that the doors weren’t being recognized properly because the Area3D nodes were children of the door assets instead of being directly referenced. Fixing that allowed rooms to start linking correctly. I also experimented with different approaches to trap rooms, trying to restrict them to one entrance, limit their count, and ensure they linked properly, but these changes kept breaking the system, either causing clipping, floating rooms, or failing to spawn at all.
 <br /> <br />Eventually, I decided to match the trap room size to the standard dungeon room and allow them to spawn like regular rooms, which finally worked. So now i will move onto getting the enemy and HUD with inventory sorted.
+
+
+
+### 22/3/2025
+So far i have found good assets to use for my enemies and have implemented a basic spawning routine for them in the dunegeon, along with fixign their AI, next i need to polish the player hud and add it so i can attack enemies and enemeis can attack the player.
