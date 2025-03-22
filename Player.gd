@@ -12,6 +12,9 @@ var current_health = 100
 
 var is_dead = false
 
+var is_attacking = false
+
+
 @onready var animation_player = $Knight/AnimationPlayer
 
 func take_damage(damage):
@@ -46,18 +49,43 @@ func update_health_ui() -> void:
 	if hud:
 		hud.update_health(current_health, max_health)
 
+var can_attack = true
+var attack_cooldown = 0.6
+
 func _process(delta):
 	if is_dead:
 		return
 
-	if Input.is_action_just_pressed("attack"):
-		print(" Attack button (Space) pressed!")  # Debug
-		attack()
+	if Input.is_action_just_pressed("attack") and can_attack:
+		is_attacking = true
+		perform_attack()
 
-		animation_player.stop()
-		animation_player.play("1H_Melee_Attack_Slice_Diagonal", -1, 1.5)
-		animation_player.seek(0, true)  # Force restart from frame 0, still broken
-		print(" Playing attack animation: 1H_Melee_Attack_Slice_Diagonal")
+func perform_attack():
+	can_attack = false
+	is_attacking = true
+
+	animation_player.stop()
+	animation_player.play("1H_Melee_Attack_Slice_Diagonal", -1, 1.0)
+	animation_player.seek(0, true)
+
+	# Detect and damage enemies
+	var enemies = get_enemies_in_range()
+	for enemy in enemies:
+		enemy.take_damage(attack_damage)
+
+	# Wait for animation to finish playing
+	await animation_player.animation_finished
+
+	
+	await get_tree().create_timer(0.2).timeout
+
+	is_attacking = false
+	animation_player.play("Idle")  
+
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
+
+
 
 
 
@@ -72,14 +100,12 @@ func get_enemies_in_range() -> Array:
 	var enemies_in_range = []
 	var space_state = get_world_3d().direct_space_state
 
-	# Create a shape for the query (Sphere for melee attack range)
+	var sphere = SphereShape3D.new()
+	sphere.radius = attack_range
+
 	var query = PhysicsShapeQueryParameters3D.new()
-	query.shape = SphereShape3D.new()
-	query.shape.radius = attack_range
-	query.transform = global_transform
-
-
-	query.collision_mask = 2  # Set this to enemy collision layer when it comes to it (check project settings)
+	query.shape = sphere
+	query.transform = Transform3D(Basis(), global_transform.origin + transform.basis.z * 1.5) 
 
 	var result = space_state.intersect_shape(query)
 
@@ -139,8 +165,10 @@ func handle_movement(delta):
 
 	
 func update_animation(input_dir):
-	if is_dead:
+
+	if is_dead or is_attacking:
 		return
+
 
 	if input_dir.length() > 0:
 		var is_sprinting = Input.is_action_pressed("sprint")

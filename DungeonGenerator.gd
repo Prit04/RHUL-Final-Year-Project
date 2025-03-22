@@ -92,20 +92,30 @@ func spawn_room() -> Node3D:
 		return new_room_instance
 	
 	return null
-
+	
 func spawn_enemies_in_room(room: Node3D):
+	await get_tree().process_frame  # Wait for room to finish placing
+
 	var spawn_container = room.find_child("EnemySpawnPoints", true, false)
 	if spawn_container:
 		var spawn_points = spawn_container.get_children()
+		spawn_points = spawn_points.filter(func(p): return p is Marker3D or p is Node3D)
 		spawn_points.shuffle()
 
-		var enemies_to_spawn = min(2, spawn_points.size())  # Limit to 2 enemies per room
+		var enemies_to_spawn = min(2, spawn_points.size())
 		for i in range(enemies_to_spawn):
 			if enemy_scene:
 				var enemy_instance = enemy_scene.instantiate()
-				enemy_instance.global_position = spawn_points[i].global_position
+				var spawn_point = spawn_points[i]
+
 				room.add_child(enemy_instance)
-				print("⚔️ Enemy spawned at:", enemy_instance.global_position)
+				enemy_instance.global_transform.origin = spawn_point.global_transform.origin
+
+				print("✅ Enemy spawned at:", enemy_instance.global_position, "in room:", room.name)
+	else:
+		print("⚠️ No valid EnemySpawnPoints found in room:", room.name)
+
+
 
 
 func choose_valid_room_offset(room_size: Vector3) -> Vector3:

@@ -970,4 +970,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4521)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29039, 0, -4.15877)
 
 [node name="EnemySpawn2" type="Marker3D" parent="EnemySpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8045, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19546, 0, 9)

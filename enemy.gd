@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # Enemy attributes
-var health = 50
+var health = 30
 var chase_speed = 2.0
 var vision_range = 10.0
 var attack_range = 2.0
