@@ -2,13 +2,15 @@ extends CharacterBody3D
 
 # Enemy attributes
 var health = 50
-var chase_speed = 3.5
+var chase_speed = 2.0
 var vision_range = 10.0
 var attack_range = 2.0
 var attack_damage = 10
 var attack_cooldown = 1.0
 var can_attack: bool = true
 var spawn_position: Vector3
+var is_awake: bool = false
+var is_waking_up = false 
 
 
 # Behavior
@@ -30,37 +32,71 @@ func _physics_process(delta: float) -> void:
 	if current_state == State.DEAD or not is_instance_valid(player):
 		return
 
-	match current_state:
-		State.IDLE:
-			if can_see_player():
-				wake_up()
-		State.CHASING:
-			chase_player(delta)
-			if not can_see_player():
-				current_state = State.IDLE  # Go back to idle if player leaves vision
+	var player_visible = can_see_player()
 
-	if is_player_in_range():
+	if not is_awake and player_visible:
+		wake_up()
+
+	if is_awake:
+		if player_visible:
+			if current_state != State.CHASING:
+				anim_player.play("Walking_D_Skeletons")
+				current_state = State.CHASING
+		else:
+			if current_state != State.IDLE:
+				anim_player.play("Idle_Combat")  
+				current_state = State.IDLE
+
+	if current_state == State.CHASING:
+		chase_player(delta)
+
+	if is_awake and is_player_in_range():
 		attack_player()
 
+
 func wake_up():
-	if current_state != State.IDLE:
+	if is_awake or is_waking_up:
+		print("Already awake or waking")
 		return
-	print("Skeleton waking up!")
-	current_state = State.CHASING
-	anim_player.play("Skeletons_awaken_Floor_Long")
+	
+	print("Skeleton waking up")
+	is_waking_up = true
+	anim_player.play("Skeletons_Awaken_Floor_Long")
+
 	await anim_player.animation_finished
-	anim_player.play("Walking_D_Skeletons")  # Switch to walking animation
+	
+	is_awake = true
+	is_waking_up = false
+	anim_player.play("Walking_D_Skeletons")
+	current_state = State.CHASING
+
+
 
 func chase_player(delta: float):
-	move_towards(player.global_transform.origin, chase_speed, delta)
+	var distance = global_transform.origin.distance_to(player.global_transform.origin)
+
+	# Only move if the player is NOT within attack range
+	if distance > attack_range:
+		move_towards(player.global_transform.origin, chase_speed, delta)
+	else:
+		velocity = Vector3.ZERO
+		move_and_slide()
+
 
 func move_towards(target: Vector3, move_speed: float, delta: float):
 	var direction = (target - global_transform.origin).normalized()
 	velocity = direction * move_speed
 	move_and_slide()
 
-	if current_state == State.CHASING and not anim_player.is_playing():
+	# Face direction of movement
+	if direction.length() > 0.1:
+		$Skeleton_Minion.look_at(global_transform.origin + direction, Vector3.UP)
+		$Skeleton_Minion.rotate_y(deg_to_rad(180))
+
+
+	if is_awake and not anim_player.is_playing():
 		anim_player.play("Walking_D_Skeletons")
+
 
 func can_see_player() -> bool:
 	if not is_instance_valid(player):
@@ -73,12 +109,22 @@ func is_player_in_range() -> bool:
 func attack_player():
 	if not can_attack or current_state == State.DEAD:
 		return
+
 	can_attack = false
 	print("Enemy attacks player!")
+
+	# Play the attack animation
+	anim_player.play("1H_Melee_Attack_Jump_Chop")
+
+	# Wait for animation to finish before dealing damage
+	await anim_player.animation_finished
+
 	if "take_damage" in player:
 		player.take_damage(attack_damage)
+
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
+
 
 func take_damage(amount):
 	if current_state == State.DEAD:
