@@ -21,12 +21,20 @@ var current_state = State.IDLE
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var nav_agent = $NavigationAgent3D
 @onready var anim_player = $Skeleton_Minion/AnimationPlayer
+@onready var health_label = $Skeleton_Minion/HealthLabel
+
 
 signal died  # Signal when the enemy dies
 
 func _ready():
 	spawn_position = global_transform.origin
 	anim_player.play("Skeletons_Inactive_Floor_Pose")  # Start in idle floor pose
+	update_health_label()
+	
+func update_health_label():
+	if health_label:
+		health_label.text = str(health, " / 30")  
+
 
 func _physics_process(delta: float) -> void:
 	if current_state == State.DEAD or not is_instance_valid(player):
@@ -52,6 +60,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_awake and is_player_in_range():
 		attack_player()
+		
+	if health_label:
+		var camera = get_viewport().get_camera_3d()
+		health_label.look_at(camera.global_transform.origin, Vector3.UP)
+		health_label.rotate_y(deg_to_rad(180))  
 
 
 func wake_up():
@@ -130,6 +143,9 @@ func take_damage(amount):
 		return
 	health -= amount
 	print("Enemy took", amount, "damage. Remaining health:", health)
+	
+	update_health_label()
+		
 	if health <= 0:
 		die()
 

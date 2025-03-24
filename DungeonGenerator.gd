@@ -10,6 +10,7 @@ extends Node3D
 
 @export var max_rooms: int = 10
 @export var max_trap_rooms: int = 2  # Limit trap rooms
+@onready var pause_menu = $PauseMenu
 
 var spawned_rooms = []  
 var used_positions = {}  
@@ -20,7 +21,11 @@ func _ready():
 	cleanup_dungeon()  # Clean up old dungeon before creating a new one
 	await ready  
 	generate_dungeon()
-
+	
+func _input(event):
+	if event.is_action_pressed("pause"):
+		pause_menu.toggle_pause()
+		
 func generate_dungeon():
 	if room_scenes.is_empty():
 		push_error("ERROR: No rooms assigned to 'room_scenes' in Inspector!")
