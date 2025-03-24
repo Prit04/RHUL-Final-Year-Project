@@ -16,15 +16,24 @@ var is_attacking = false
 
 
 @onready var animation_player = $Knight/AnimationPlayer
+@onready var hud = get_tree().get_current_scene().get_node("CanvasLayer/HUD")
+
+
 
 func take_damage(damage):
 	if is_dead:
 		return
+
 	current_health -= damage
+	current_health = clamp(current_health, 0, max_health)
+
+	var hearts_to_show = ceil(float(current_health) / 20.0)
+	if hud:
+		hud.update_health(hearts_to_show, 5)  
+
 	if current_health <= 0:
 		die()
-	else:
-		update_health_ui()
+
 
 func die():
 	if is_dead:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dthtwm5bcm5s0"]
 
 [ext_resource type="Script" path="res://LoadingScreen.gd" id="1_cn34s"]
-[ext_resource type="Texture2D" uid="uid://bjviqd1qji3ds" path="res://UI assets/Screenshot 2025-03-12 150212.png" id="2_sjwi3"]
+[ext_resource type="Texture2D" uid="uid://bfuehg4un4o7n" path="res://UI assets/PBM.png" id="2_kb0fb"]
 
 [sub_resource type="Animation" id="Animation_g04cg"]
 length = 0.001
@@ -55,13 +55,13 @@ script = ExtResource("1_cn34s")
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 0.768251
-offset_top = 1.56222
-offset_right = 890.768
-offset_bottom = 511.562
+offset_left = -174.393
+offset_top = -82.7976
+offset_right = 3857.61
+offset_bottom = 2941.2
 scale = Vector2(0.995563, 0.998713)
-texture = ExtResource("2_sjwi3")
-stretch_mode = 5
+texture = ExtResource("2_kb0fb")
+stretch_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

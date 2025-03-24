@@ -73,7 +73,7 @@ func spawn_room() -> Node3D:
 	var offset = choose_valid_room_offset(room_size)
 	var new_pos = spawned_rooms[-1].global_position + offset  
 
-	# ✅ Snap to grid
+	# Snap to grid
 	new_pos.x = snapped(new_pos.x, room_size.x)  
 	new_pos.z = snapped(new_pos.z, room_size.z)  
 
@@ -82,9 +82,9 @@ func spawn_room() -> Node3D:
 		used_positions[new_pos] = true
 		add_child(new_room_instance)
 
-		print("✅ Room placed at:", new_room_instance.global_position, " with size:", room_size)
+		print("Room placed at:", new_room_instance.global_position, " with size:", room_size)
 
-		# ✅ Spawn enemies inside this room
+		# Spawn enemies inside this room
 		spawn_enemies_in_room(new_room_instance)
 
 		link_doors(spawned_rooms[-1], new_room_instance, offset)

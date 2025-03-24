@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 
 func wake_up():
 	if is_awake or is_waking_up:
-		print("Already awake or waking")
 		return
 	
 	print("Skeleton waking up")
@@ -142,4 +141,12 @@ func die():
 	anim_player.play("Death_C_Skeletons")
 	await anim_player.animation_finished
 	emit_signal("died")
+	var hud = get_tree().get_root().find_child("HUD", true, false)
+	if hud:
+		hud.add_score(100)
+	else:
+		print("⚠️ HUD not found! Score not updated.")
+
+
+
 	queue_free()
