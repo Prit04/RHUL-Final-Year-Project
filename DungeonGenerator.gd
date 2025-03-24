@@ -22,8 +22,9 @@ func _ready():
 	await ready  
 	generate_dungeon()
 	
-func _input(event):
-	if event.is_action_pressed("pause"):
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause") and pause_menu:
 		pause_menu.toggle_pause()
 		
 func generate_dungeon():
