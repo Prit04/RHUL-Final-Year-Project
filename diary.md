@@ -185,4 +185,5 @@ I focused on improving the player's HUD and combat feedback. I rewired the HUD t
 
 
 ### 27/3/2025
-I focused on rewiring the death screen to fit the current system, it works fine and intended. I am now wokringg on a new feature which is where chests and potions spawn dynamically int he dungeon to aid exploration and to help the player health and get more score.
+I focused on rewiring the death screen to fit the current system, it works fine and intended. I am now wokringg on a new feature which is where chests and potions spawn dynamically in the dungeon to aid exploration and to help the player health and get more score.
+<br /> <br />I have managed to implement some kind of working chest system, they spawn randomly and in different rooms but there is a bug where they are spawnining outside the rooms. But they work as intended, when th eplayer interacts it addds to their score. Now its time to work on the health potion.
