@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdo4jpwpu42da"]
+
+[ext_resource type="PackedScene" uid="uid://sou128byhkqn" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/chest_gold.fbx" id="1_4glmh"]
+[ext_resource type="Script" path="res://chest.gd" id="2_d2sfw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q5uw"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ms5b0"]
+
+[node name="chest_gold" instance=ExtResource("1_4glmh")]
+script = ExtResource("2_d2sfw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1.68139, 0, 0, 0, 1.14924, 0, 0, 0, 1, 0, 0.607165, 0)
+shape = SubResource("BoxShape3D_7q5uw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_ms5b0")
+}

@@ -11,6 +11,7 @@ extends Node3D
 @export var max_rooms: int = 10
 @export var max_trap_rooms: int = 2  # Limit trap rooms
 @onready var pause_menu = $PauseMenu
+@onready var game_over = $GameOver
 
 var spawned_rooms = []  
 var used_positions = {}  

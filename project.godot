@@ -15,9 +15,13 @@ run/main_scene="res://LoadingScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utilities="*res://Menus/scripts/Utilities.gd"
+AudioManager="*res://Menus/scripts/audio_manager.gd"
+
 [display]
 
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

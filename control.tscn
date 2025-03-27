@@ -1,20 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cny51xptnsdk1"]
+[gd_scene load_steps=17 format=3 uid="uid://cny51xptnsdk1"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_1smaw"]
 [ext_resource type="Texture2D" uid="uid://r2ijn81l73rq" path="res://UI assets/mainmenu.webp" id="2_v7cav"]
 [ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="3_223tr"]
 [ext_resource type="Texture2D" uid="uid://b041g305amd62" path="res://UI assets/hover.tres" id="3_c0nsy"]
+[ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://StyledButton.tscn" id="3_cpbj0"]
 [ext_resource type="Texture2D" uid="uid://c7urheojdg50x" path="res://UI assets/pressed.tres" id="4_cildj"]
 [ext_resource type="Texture2D" uid="uid://c5edsk3bbqfru" path="res://UI assets/Atlas.tres" id="5_gflfo"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujbsb"]
-texture = ExtResource("3_c0nsy")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2hlx"]
-texture = ExtResource("4_cildj")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnctv"]
-texture = ExtResource("5_gflfo")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhy7o"]
 texture = ExtResource("3_c0nsy")
@@ -108,16 +100,8 @@ scale = Vector2(0.651654, 1)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" parent="VBoxContainer" instance=ExtResource("3_cpbj0")]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.147672, 0.147672, 0.147672, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_223tr")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/hover = SubResource("StyleBoxTexture_ujbsb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_l2hlx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_bnctv")
-text = "Start"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

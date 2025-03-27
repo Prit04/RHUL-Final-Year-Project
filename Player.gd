@@ -41,16 +41,20 @@ func die():
 	is_dead = true
 	animation_player.play("Death_B")
 	print("The player has died")
-	
+
 	var hud = get_node_or_null("/root/StaticBody3D/HUD")
 	if hud:
 		hud.visible = false
-		show_game_over()
+
+	show_game_over()
 
 func show_game_over():
-	var game_over_scene = load("res://GameOver.tscn")  
-	var game_over_instance = game_over_scene.instantiate()
-	get_tree().current_scene.add_child(game_over_instance)
+	var game_over = get_tree().current_scene.get_node("GameOver")
+	if game_over:
+		game_over.visible = true
+	else:
+		print("GameOver screen not found!")
+
 
 
 func update_health_ui() -> void:

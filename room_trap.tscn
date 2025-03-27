@@ -1,9 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://crii7b610b83y"]
+[gd_scene load_steps=31 format=3 uid="uid://crii7b610b83y"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_12fof"]
 [ext_resource type="PackedScene" uid="uid://bnyeu5fu13xt4" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_doorway.fbx" id="1_jqns6"]
 [ext_resource type="PackedScene" uid="uid://bfqk41iya21ap" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_small_decorated.fbx" id="3_cbeau"]
-[ext_resource type="PackedScene" uid="uid://co5oux46yr7sw" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="3_icwvm"]
 [ext_resource type="PackedScene" uid="uid://d2jowd1osmalf" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_small_broken_B.fbx" id="4_1j3fa"]
 [ext_resource type="PackedScene" uid="uid://c1xt6n8ro5am6" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_small_weeds_A.fbx" id="5_ljr7p"]
 [ext_resource type="PackedScene" uid="uid://b8sgm8qm0qxsd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_small.fbx" id="6_txblf"]
@@ -24,15 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://dax5b62tmv8no" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/box_stacked.fbx" id="23_uhgvh"]
 [ext_resource type="PackedScene" uid="uid://dvkxlle0kahi5" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large_rocky.fbx" id="24_xbo0a"]
 [ext_resource type="PackedScene" uid="uid://c24ul1eo5rbqp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large.fbx" id="25_hwk0x"]
-[ext_resource type="PackedScene" uid="uid://bho2n1q0fbk33" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_big_spikes.fbx" id="26_yoca4"]
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_47se8"]
-[ext_resource type="PackedScene" uid="uid://df45xunia8elu" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/table_round_large.fbx" id="28_epb31"]
-[ext_resource type="PackedScene" uid="uid://daksg3bxxac8y" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/chest_mimic.fbx" id="28_km7hi"]
-[ext_resource type="PackedScene" uid="uid://d06tgrx84el6s" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/trunk_large_B.fbx" id="29_c88kf"]
-[ext_resource type="PackedScene" uid="uid://c3cx8im8fekoc" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/coin_stack_large.fbx" id="29_te0d6"]
-[ext_resource type="PackedScene" uid="uid://sou128byhkqn" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/chest_gold.fbx" id="32_8ldtr"]
 [ext_resource type="PackedScene" uid="uid://qixuicvebwcu" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/chest_large.fbx" id="33_ajdir"]
-[ext_resource type="PackedScene" uid="uid://pc60j2jeh6g5" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/bottle_C_green.fbx" id="34_870g5"]
 [ext_resource type="PackedScene" uid="uid://derdcpswru0li" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_scaffold.fbx" id="35_b0v4s"]
 
 [sub_resource type="Environment" id="Environment_nquel"]
@@ -94,9 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.424737, 0)
 transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_pfclp")
 
-[node name="floor_tile_extralarge_grates_open" parent="." instance=ExtResource("3_icwvm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 20)
-
 [node name="floor_tile_small_decorated" parent="." instance=ExtResource("3_cbeau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 27)
 
@@ -140,16 +129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.445128, 0)
 transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_pfclp")
 
-[node name="floor_tile_large_rocks" parent="." instance=ExtResource("7_3l16b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile_large_rocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.446699, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_large_rocks/StaticBody3D"]
-transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
-shape = SubResource("BoxShape3D_pfclp")
-
 [node name="floor_tile_large4" parent="." instance=ExtResource("1_12fof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 18)
 
@@ -177,16 +156,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 22)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.431306, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_large6/StaticBody3D"]
-transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
-shape = SubResource("BoxShape3D_pfclp")
-
-[node name="floor_tile_large_rocks2" parent="." instance=ExtResource("7_3l16b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile_large_rocks2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.489658, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_large_rocks2/StaticBody3D"]
 transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_pfclp")
 
@@ -326,7 +295,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 18)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.458215, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_large12/StaticBody3D"]
-transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, 0, 0, -0.5)
+transform = Transform3D(4.32, 0, 0, 0, 1, 0, 0, 0, 1.248, -0.00310516, 0.0137892, -0.480021)
 shape = SubResource("BoxShape3D_pfclp")
 
 [node name="floor_tile_large13" parent="." instance=ExtResource("1_12fof")]
@@ -875,18 +844,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 23)
 [node name="floor_dirt_large" parent="." instance=ExtResource("25_hwk0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 17)
 
-[node name="floor_tile_big_spikes" parent="." instance=ExtResource("26_yoca4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -2, 20)
-
-[node name="floor_tile_big_spikes2" parent="." instance=ExtResource("26_yoca4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 23)
-
-[node name="floor_tile_big_spikes3" parent="." instance=ExtResource("26_yoca4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 17)
-
-[node name="floor_tile_big_spikes4" parent="." instance=ExtResource("26_yoca4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, 20)
-
 [node name="PlayerSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.174355, 20.4)
 
@@ -939,29 +896,8 @@ transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 5, 21.37
 light_color = Color(1, 0.977234, 0.969106, 1)
 light_energy = 0.1
 
-[node name="table_round_large" parent="." instance=ExtResource("28_epb31")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 20)
-
-[node name="trunk_large_B" parent="." instance=ExtResource("29_c88kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 22)
-
-[node name="coin_stack_large" parent="." instance=ExtResource("29_te0d6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 18)
-
-[node name="coin_stack_large2" parent="." instance=ExtResource("29_te0d6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 16)
-
-[node name="chest_mimic" parent="." instance=ExtResource("28_km7hi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
-
-[node name="chest_gold" parent="." instance=ExtResource("32_8ldtr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 13)
-
 [node name="chest_large" parent="." instance=ExtResource("33_ajdir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 14)
-
-[node name="bottle_C_green" parent="." instance=ExtResource("34_870g5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 24)
 
 [node name="EnemySpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4521)
@@ -971,3 +907,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29039, 0, -4.15877)
 
 [node name="EnemySpawn2" type="Marker3D" parent="EnemySpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19546, 0, 9)
+
+[node name="floor_tile_large16" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
+
+[node name="floor_tile_large17" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 18)
+
+[node name="floor_tile_large18" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 18)
+
+[node name="floor_tile_large19" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 22)
+
+[node name="floor_tile_large20" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 22)
+
+[node name="floor_tile_large21" parent="." instance=ExtResource("1_12fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22)
+
+[node name="torch_lit3" parent="." instance=ExtResource("27_47se8")]
+transform = Transform3D(-0.756812, 0.0841727, -0.64819, 0.306411, 0.921647, -0.238074, 0.577363, -0.37879, -0.723305, -6.11495, 2.19886, 31.6622)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch_lit3"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
+light_color = Color(1, 0.717647, 0.462745, 1)
+light_energy = 3.194
+light_indirect_energy = 4.474
+light_volumetric_fog_energy = 2.151
+light_size = 0.263
+light_specular = 3.151
+shadow_enabled = true

@@ -1,13 +1,17 @@
-extends Control
+extends CanvasLayer
+
+@onready var play_again_button = $VBoxContainer/PlayAgainButton
+@onready var main_menu_button = $VBoxContainer/MainMenuButton
 
 func _ready():
-	# Connect button signals
-	$VBoxContainer/RestartButton.pressed.connect(_on_restart_button_pressed)
-	$VBoxContainer/QuitButton.pressed.connect(_on_quit_button_pressed)
+	visible = false
+	play_again_button.pressed.connect(on_play_again_pressed)
+	main_menu_button.pressed.connect(on_main_menu_pressed)
 
-func _on_restart_button_pressed():
-	# Reload the current scene to restart the game
+func on_play_again_pressed():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-func _on_quit_button_pressed():
-	get_tree().quit()
+func on_main_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://control.tscn")  

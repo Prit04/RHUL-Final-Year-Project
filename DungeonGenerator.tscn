@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpbxiff6dejs1"]
+[gd_scene load_steps=8 format=3 uid="uid://bpbxiff6dejs1"]
 
 [ext_resource type="Script" path="res://DungeonGenerator.gd" id="1_82w1m"]
 [ext_resource type="PackedScene" uid="uid://bhhr350rm8v24" path="res://dungeonRoom.tscn" id="2_jd02l"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0t3vrrhcap37" path="res://enemy.tscn" id="4_y7jp2"]
 [ext_resource type="PackedScene" uid="uid://2sjm4n5hkqqg" path="res://PauseMenu.tscn" id="5_7erwm"]
 [ext_resource type="PackedScene" uid="uid://bfo8vu5ys4rv0" path="res://hud.tscn" id="5_vge5d"]
+[ext_resource type="PackedScene" uid="uid://dos3aa6nfvicg" path="res://GameOver.tscn" id="7_ffre0"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_82w1m")
@@ -14,8 +15,9 @@ player_scene = ExtResource("3_v4glu")
 enemy_scene = ExtResource("4_y7jp2")
 
 [node name="Pause" parent="." instance=ExtResource("5_7erwm")]
-process_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_vge5d")]
+
+[node name="GameOver" parent="." instance=ExtResource("7_ffre0")]

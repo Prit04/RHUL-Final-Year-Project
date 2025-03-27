@@ -1,40 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://2sjm4n5hkqqg"]
+[gd_scene load_steps=5 format=3 uid="uid://2sjm4n5hkqqg"]
 
 [ext_resource type="Script" path="res://PauseMenu.gd" id="1_74570"]
 [ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="2_2ahsl"]
+[ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://StyledButton.tscn" id="2_c40v8"]
+
+[sub_resource type="Theme" id="Theme_ywshi"]
 
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_74570")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 488.0
-offset_top = 232.0
-offset_right = 603.0
-offset_bottom = 333.0
-scale = Vector2(1.51868, 1.49751)
+offset_left = 376.0
+offset_top = 256.0
+offset_right = 832.0
+offset_bottom = 357.0
+scale = Vector2(0.89257, 2.27155)
 mouse_filter = 2
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+[node name="ResumeButton" parent="VBoxContainer" instance=ExtResource("2_c40v8")]
 layout_mode = 2
+theme = SubResource("Theme_ywshi")
+theme_override_font_sizes/font_size = 20
 text = "Resume"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" parent="VBoxContainer" instance=ExtResource("2_c40v8")]
 layout_mode = 2
-text = "Options"
+theme_override_font_sizes/font_size = 20
+text = "Options
+"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="ExitButton" parent="VBoxContainer" instance=ExtResource("2_c40v8")]
 layout_mode = 2
-text = "Return to MM"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -379.0
-offset_top = -307.0
-offset_right = 770.0
-offset_bottom = 338.0
-scale = Vector2(1.80117, 2.04872)
-mouse_filter = 2
-color = Color(1, 1, 1, 0.2)
+theme_override_font_sizes/font_size = 20
+text = "Return to main menu"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 408.0
@@ -44,3 +43,13 @@ offset_bottom = 162.0
 theme_override_fonts/font = ExtResource("2_2ahsl")
 theme_override_font_sizes/font_size = 58
 text = "PAUSED"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -379.0
+offset_top = -307.0
+offset_right = 770.0
+offset_bottom = 338.0
+scale = Vector2(1.80117, 2.04872)
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2)
+metadata/_edit_use_anchors_ = true
