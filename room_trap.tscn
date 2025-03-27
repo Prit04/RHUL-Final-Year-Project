@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crii7b610b83y"]
+[gd_scene load_steps=30 format=3 uid="uid://crii7b610b83y"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_12fof"]
 [ext_resource type="PackedScene" uid="uid://bnyeu5fu13xt4" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_doorway.fbx" id="1_jqns6"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dvkxlle0kahi5" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large_rocky.fbx" id="24_xbo0a"]
 [ext_resource type="PackedScene" uid="uid://c24ul1eo5rbqp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large.fbx" id="25_hwk0x"]
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_47se8"]
-[ext_resource type="PackedScene" uid="uid://qixuicvebwcu" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/chest_large.fbx" id="33_ajdir"]
 [ext_resource type="PackedScene" uid="uid://derdcpswru0li" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_scaffold.fbx" id="35_b0v4s"]
 
 [sub_resource type="Environment" id="Environment_nquel"]
@@ -896,9 +895,6 @@ transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 5, 21.37
 light_color = Color(1, 0.977234, 0.969106, 1)
 light_energy = 0.1
 
-[node name="chest_large" parent="." instance=ExtResource("33_ajdir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 14)
-
 [node name="EnemySpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4521)
 
@@ -938,3 +934,8 @@ light_volumetric_fog_energy = 2.151
 light_size = 0.263
 light_specular = 3.151
 shadow_enabled = true
+
+[node name="ChestSpawnPoints" type="Node3D" parent="."]
+
+[node name="ChestSpawn" type="Marker3D" parent="ChestSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.144186, 19.8292)

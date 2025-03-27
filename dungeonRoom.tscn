@@ -868,7 +868,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 17)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, 20)
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.174355, 20.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.0867776, 20.4)
 
 [node name="torch_lit" parent="." instance=ExtResource("27_yt236")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.21699, 8.62417)
@@ -938,6 +938,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3388, 0, 9.21084)
 [node name="bucket_pickaxes" parent="." instance=ExtResource("28_qoch4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0735, -0.248845, 16.996)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bucket_pickaxes"]
+[node name="StaticBody3D" type="StaticBody3D" parent="bucket_pickaxes"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bucket_pickaxes/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812797, 0)
 shape = SubResource("BoxShape3D_qi3qv")
+
+[node name="ChestSpawnPoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.268919, 20.1148)
+
+[node name="ChestSpawn" type="Marker3D" parent="ChestSpawnPoints"]

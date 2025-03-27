@@ -7,8 +7,12 @@ extends Node3D
 ]
 @export var player_scene: PackedScene
 @export var enemy_scene: PackedScene
+@export var chest_scene: PackedScene
+@export var max_chest_rooms: int = 4
+var chest_room_count = 0
 
-@export var max_rooms: int = 10
+
+@export var max_rooms: int = 12
 @export var max_trap_rooms: int = 2  # Limit trap rooms
 @onready var pause_menu = $PauseMenu
 @onready var game_over = $GameOver
@@ -68,6 +72,7 @@ func spawn_room() -> Node3D:
 	if room_scenes.is_empty():
 		push_error("ERROR: No rooms assigned to 'room_scenes' in Inspector!")
 		return null  
+		
 
 	var selected_room = room_scenes.pick_random()
 	var new_room_instance = selected_room.instantiate()
@@ -88,11 +93,19 @@ func spawn_room() -> Node3D:
 		new_room_instance.global_position = new_pos
 		used_positions[new_pos] = true
 		add_child(new_room_instance)
+		await get_tree().process_frame 
 
 		print("Room placed at:", new_room_instance.global_position, " with size:", room_size)
 
 		# Spawn enemies inside this room
 		spawn_enemies_in_room(new_room_instance)
+		
+
+	if chest_scene and chest_room_count < max_chest_rooms and spawned_rooms.size() >= 1:
+		if spawn_chest_in_room(new_room_instance):
+			chest_room_count += 1
+
+
 
 		link_doors(spawned_rooms[-1], new_room_instance, offset)
 
@@ -100,6 +113,20 @@ func spawn_room() -> Node3D:
 	
 	return null
 	
+func spawn_chest_in_room(room: Node3D) -> bool:
+	var spawn_point = room.find_child("ChestSpawn", true, false)
+	if spawn_point:
+		var chest_instance = chest_scene.instantiate()
+		chest_instance.global_transform.origin = spawn_point.global_transform.origin
+		room.add_child(chest_instance)
+		print("Chest spawned at:", chest_instance.global_transform.origin)
+		return true
+	else:
+		print("No ChestSpawn point found in room:", room.name)
+		return false
+
+
+
 func spawn_enemies_in_room(room: Node3D):
 	await get_tree().process_frame  # Wait for room to finish placing
 

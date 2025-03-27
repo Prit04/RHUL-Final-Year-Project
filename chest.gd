@@ -1,26 +1,24 @@
-extends Node3D
+extends StaticBody3D
 
-@export var score_amount := 100
-@onready var anim_player = $AnimationPlayer
+@export var chest_value := 250
+var is_open := false
 
-var opened = false
-
-func open():
-	if opened:
+func interact():
+	if is_open:
 		return
-	opened = true
-	print("Chest opened! Adding score: ", score_amount)
 
-	
-	if anim_player and anim_player.has_animation("Open"):
-		anim_player.play("Open")
+	is_open = true
+	print("Chest opened! Gained", chest_value, "points.")
 
-	# Add to score
-	var hud = get_tree().get_root().get_node_or_null("DungeonGenerator/HUD")
-	if hud:
-		hud.add_score(score_amount)
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud and hud.has_method("add_score"):
+		hud.add_score(chest_value)
 	else:
-		print("HUD not found. Score not updated.")
+		print("HUD not found or 'add_score' method missing!")
 
-	await get_tree().create_timer(1.0).timeout
-	queue_free()  # Remove chest after a delay
+
+	var anim = $AnimationPlayer if has_node("AnimationPlayer") else null
+	if anim:
+		anim.play("Open")
+	else:
+		print("No AnimationPlayer found on chest.")

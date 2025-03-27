@@ -72,6 +72,36 @@ func _process(delta):
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
 		perform_attack()
+		
+	if Input.is_action_just_pressed("interact"):
+		var chest = get_interactable_chest()
+		if chest:
+			print(" Chest found:", chest)
+			chest.interact()
+		else:
+			print(" No chest detected nearby.")
+
+
+func get_interactable_chest():
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsShapeQueryParameters3D.new()
+	query.shape = SphereShape3D.new()
+	query.shape.radius = 2.5  
+	query.transform = global_transform
+	query.collision_mask = 1 
+	var results = space_state.intersect_shape(query)
+	print("🔍 Checking for chests. Hits:", results.size())
+
+	for result in results:
+		print("Found:", result.collider)
+		
+		if result.collider.has_method("interact"):
+			print(" Interactable chest found!")
+			return result.collider
+
+	print(" No chest detected nearby.")
+	return null
+
 
 func perform_attack():
 	can_attack = false
