@@ -10,6 +10,10 @@ extends Node3D
 @export var chest_scene: PackedScene
 @export var max_chest_rooms: int = 4
 var chest_room_count = 0
+@export var potion_scene: PackedScene
+@export var max_potions: int = 4
+var potions_spawned = 0
+
 
 
 @export var max_rooms: int = 12
@@ -99,6 +103,7 @@ func spawn_room() -> Node3D:
 
 		# Spawn enemies inside this room
 		spawn_enemies_in_room(new_room_instance)
+		spawn_potion_in_room(new_room_instance)
 		
 
 	if chest_scene and chest_room_count < max_chest_rooms and spawned_rooms.size() >= 1:
@@ -145,10 +150,29 @@ func spawn_enemies_in_room(room: Node3D):
 				room.add_child(enemy_instance)
 				enemy_instance.global_transform.origin = spawn_point.global_transform.origin
 
-				print("✅ Enemy spawned at:", enemy_instance.global_position, "in room:", room.name)
+				print("Enemy spawned at:", enemy_instance.global_position, "in room:", room.name)
 	else:
-		print("⚠️ No valid EnemySpawnPoints found in room:", room.name)
+		print("No valid EnemySpawnPoints found in room:", room.name)
 
+func spawn_potion_in_room(room: Node3D):
+	if potions_spawned >= max_potions or potion_scene == null:
+		return
+
+	await get_tree().process_frame
+
+	var spawn_container = room.find_child("PotionSpawnPoints", true, false)
+	if spawn_container:
+		var spawn_points = spawn_container.get_children()
+		spawn_points = spawn_points.filter(func(p): return p is Marker3D or p is Node3D)
+		spawn_points.shuffle()
+
+		if spawn_points.size() > 0:
+			var spawn_point = spawn_points[0]
+			var potion = potion_scene.instantiate()
+			room.add_child(potion)
+			potion.global_transform.origin = spawn_point.global_transform.origin
+			print("Potion spawned at:", potion.global_position)
+			potions_spawned += 1
 
 
 

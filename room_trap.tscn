@@ -939,3 +939,8 @@ shadow_enabled = true
 
 [node name="ChestSpawn" type="Marker3D" parent="ChestSpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.144186, 19.8292)
+
+[node name="PotionSpawnPoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 25.9016)
+
+[node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]

@@ -80,6 +80,17 @@ func _process(delta):
 			chest.interact()
 		else:
 			print(" No chest detected nearby.")
+			
+func heal(amount: int):
+	if is_dead:
+		return
+	current_health += amount
+	current_health = clamp(current_health, 0, max_health)
+	var hearts_to_show = ceil(float(current_health) / 20.0)
+	if hud:
+		hud.update_health(hearts_to_show, 5)
+	print("Healed! Current HP:", current_health)
+
 
 
 func get_interactable_chest():

@@ -948,3 +948,8 @@ shape = SubResource("BoxShape3D_qi3qv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.268919, 20.1148)
 
 [node name="ChestSpawn" type="Marker3D" parent="ChestSpawnPoints"]
+
+[node name="PotionSpawnPoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 19.8078)
+
+[node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]
