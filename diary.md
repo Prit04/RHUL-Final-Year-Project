@@ -191,3 +191,4 @@ I focused on rewiring the death screen to fit the current system, it works fine 
 
 ### 28/3/2025
 I worked on getting a proper score system in place. I updated the HUD to display both the current score and the high score, and after a bit of trial and error, I got it to save the high score to a file on death. I ran into a weird issue where the high score kept resetting when I pressed retry, but I eventually figured it out by saving the score before reloading the scene. I tested thoroughly by setting  a high score, beating it to see if it updated, and got a lower one to see if it wasnt replaced, then tested by exiting to main menu and playing again to see if it was still there. Next will be to polish a few things then start working on adding music and SFX along with the options menu.
+<br /> <br />I added a quick polish where it tells the player using a pop up that they have a new high score.
