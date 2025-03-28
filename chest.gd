@@ -15,10 +15,3 @@ func interact():
 		hud.add_score(chest_value)
 	else:
 		print("HUD not found or 'add_score' method missing!")
-
-
-	var anim = $AnimationPlayer if has_node("AnimationPlayer") else null
-	if anim:
-		anim.play("Open")
-	else:
-		print("No AnimationPlayer found on chest.")

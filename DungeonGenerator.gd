@@ -212,7 +212,7 @@ func detect_open_door(room: Node3D) -> bool:
 		print("No valid doors found in room:", room.name)
 	return found_door
 
-# Fixing door linking
+
 func link_doors(prev_room, new_room, offset):
 	var prev_door = get_doorway(prev_room, offset)
 	var new_door = get_doorway(new_room, -offset)

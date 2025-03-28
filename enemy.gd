@@ -159,9 +159,9 @@ func die():
 	emit_signal("died")
 	var hud = get_tree().get_root().find_child("HUD", true, false)
 	if hud:
-		hud.add_score(100)
+		hud.add_score(4000)
 	else:
-		print("⚠️ HUD not found! Score not updated.")
+		print("HUD not found! Score not updated.")
 
 
 

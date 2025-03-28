@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var health_container = $MarginContainer/VBoxContainer/HealthContainer
 @onready var score_label = $ScoreLabel
 
+
 var save_path := "user://save_data.cfg"
 var high_score := 0
 
@@ -15,6 +16,8 @@ func _ready():
 	score = 0  # Reset score when starting/retrying
 	update_health(current_health, max_health)
 	update_score_display()
+
+
 
 
 
@@ -63,6 +66,14 @@ func add_score(amount: int):
 	score += amount
 	if score > high_score:
 		high_score = score
+		show_new_high_score_message()
 		save_score()  
 	update_score_display()
-	$AnimationPlayer.play("score_pop")
+
+	
+func show_new_high_score_message():
+	var label = $NewHighScoreLabel
+	if label:
+		label.visible = true
+		await get_tree().create_timer(2.0).timeout  
+		label.visible = false

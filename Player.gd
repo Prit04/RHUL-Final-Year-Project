@@ -113,7 +113,7 @@ func get_interactable_chest():
 	query.transform = global_transform
 	query.collision_mask = 1 
 	var results = space_state.intersect_shape(query)
-	print("🔍 Checking for chests. Hits:", results.size())
+	print("Checking for chests. Hits:", results.size())
 
 	for result in results:
 		print("Found:", result.collider)
