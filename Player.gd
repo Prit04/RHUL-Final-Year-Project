@@ -45,10 +45,13 @@ func die():
 	animation_player.play("Death_B")
 	print("The player has died")
 
-	var hud = get_node_or_null("/root/StaticBody3D/HUD")
-	if hud:
-		hud.visible = false
+	var hud = get_tree().get_root().get_node_or_null("DungeonGenerator/HUD")
 
+	if hud:
+		hud.save_score()
+		await get_tree().create_timer(0.1).timeout  
+		hud.visible = false
+		
 	show_game_over()
 
 func show_game_over():
@@ -84,7 +87,6 @@ func _process(delta):
 			animation_player.play("Interact")
 			animation_player.seek(0, true)
 
-				# OPTIONAL: wait for animation to fully play before doing the interaction
 			await animation_player.animation_finished
 			chest.interact()
 			is_interacting = false
