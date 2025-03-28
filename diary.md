@@ -186,4 +186,8 @@ I focused on improving the player's HUD and combat feedback. I rewired the HUD t
 
 ### 27/3/2025
 I focused on rewiring the death screen to fit the current system, it works fine and intended. I am now wokringg on a new feature which is where chests and potions spawn dynamically in the dungeon to aid exploration and to help the player health and get more score.
-<br /> <br />I have managed to implement some kind of working chest system, they spawn randomly and in different rooms but there is a bug where they are spawnining outside the rooms. But they work as intended, when th eplayer interacts it addds to their score. Now its time to work on the health potion.
+<br /> <br />I have managed to implement some kind of working chest system, they spawn randomly and in different rooms but there is a bug where they are spawnining outside the rooms. But they work as intended, when the player interacts it addds to their score. Now its time to work on the health potion.
+
+
+### 28/3/2025
+I worked on getting a proper score system in place. I updated the HUD to display both the current score and the high score, and after a bit of trial and error, I got it to save the high score to a file on death. I ran into a weird issue where the high score kept resetting when I pressed retry, but I eventually figured it out by saving the score before reloading the scene. I tested thoroughly by setting  a high score, beating it to see if it updated, and got a lower one to see if it wasnt replaced, then tested by exiting to main menu and playing again to see if it was still there.
