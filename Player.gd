@@ -14,6 +14,9 @@ var is_dead = false
 
 var is_attacking = false
 
+var is_interacting = false
+
+
 
 @onready var animation_player = $Knight/AnimationPlayer
 @onready var hud = get_tree().get_current_scene().get_node("CanvasLayer/HUD")
@@ -73,11 +76,18 @@ func _process(delta):
 		is_attacking = true
 		perform_attack()
 		
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not is_interacting:
 		var chest = get_interactable_chest()
 		if chest:
-			print(" Chest found:", chest)
+			is_interacting = true
+			animation_player.stop()
+			animation_player.play("Interact")
+			animation_player.seek(0, true)
+
+				# OPTIONAL: wait for animation to fully play before doing the interaction
+			await animation_player.animation_finished
 			chest.interact()
+			is_interacting = false
 		else:
 			print(" No chest detected nearby.")
 			
@@ -222,6 +232,9 @@ func update_animation(input_dir):
 
 	if is_dead or is_attacking:
 		return
+	if is_interacting:
+		return
+
 
 
 	if input_dir.length() > 0:
