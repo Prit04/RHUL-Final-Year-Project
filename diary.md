@@ -196,3 +196,4 @@ I worked on getting a proper score system in place. I updated the HUD to display
 
 ### 31/3/2025
 I am working on adding audio and SFX to the game.
+<br /> <br />Today I fully integrated sound into the game, adding audio for both gameplay and UI. The player now has footstep and attack sounds, potions and chests play pickup effects, skeleton enemies have unique wake-up, walking, and death SFX
