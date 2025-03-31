@@ -9,6 +9,9 @@ func interact():
 
 	is_open = true
 	print("Chest opened! Gained", chest_value, "points.")
+	
+	if has_node("ChestOpenSound"):
+		$ChestOpenSound.play()
 
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud and hud.has_method("add_score"):

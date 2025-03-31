@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var resume_button = $VBoxContainer/ResumeButton
 @onready var options_button = $VBoxContainer/OptionsButton
 @onready var exit_button = $VBoxContainer/ExitButton
+@onready var click_player = $ClickPlayer
 
 func _ready():
 	visible = false  # Start hidden
@@ -23,12 +24,17 @@ func toggle_pause():
 		get_tree().paused = true
 
 func _on_resume_pressed():
+	click_player.play()
 	toggle_pause()
 
 func _on_exit_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://control.tscn")
 
 func _on_options_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://OptionsMenu.tscn")

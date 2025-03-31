@@ -23,6 +23,11 @@ var current_state = State.IDLE
 @onready var anim_player = $Skeleton_Minion/AnimationPlayer
 @onready var health_label = $Skeleton_Minion/HealthLabel
 
+@onready var wake_sfx = $WakeSFX
+@onready var walk_sfx = $WalkSFX
+@onready var death_sfx = $DeathSFX
+
+
 
 signal died  # Signal when the enemy dies
 
@@ -71,6 +76,9 @@ func wake_up():
 	if is_awake or is_waking_up:
 		return
 	
+	if wake_sfx:
+		wake_sfx.play()
+
 	print("Skeleton waking up")
 	is_waking_up = true
 	anim_player.play("Skeletons_Awaken_Floor_Long")
@@ -90,9 +98,14 @@ func chase_player(delta: float):
 	# Only move if the player is NOT within attack range
 	if distance > attack_range:
 		move_towards(player.global_transform.origin, chase_speed, delta)
+		if walk_sfx and not walk_sfx.playing:
+			walk_sfx.play()
+
 	else:
 		velocity = Vector3.ZERO
 		move_and_slide()
+		if walk_sfx and walk_sfx.playing:
+			walk_sfx.stop()
 
 
 func move_towards(target: Vector3, move_speed: float, delta: float):
@@ -154,15 +167,14 @@ func die():
 		return
 	print("Enemy died!")
 	current_state = State.DEAD
+	if death_sfx:
+		death_sfx.play()
 	anim_player.play("Death_C_Skeletons")
 	await anim_player.animation_finished
 	emit_signal("died")
 	var hud = get_tree().get_root().find_child("HUD", true, false)
 	if hud:
-		hud.add_score(4000)
+		hud.add_score(1000)
 	else:
 		print("HUD not found! Score not updated.")
-
-
-
 	queue_free()

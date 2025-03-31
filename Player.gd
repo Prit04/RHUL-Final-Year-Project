@@ -20,6 +20,7 @@ var is_interacting = false
 
 @onready var animation_player = $Knight/AnimationPlayer
 @onready var hud = get_tree().get_current_scene().get_node("CanvasLayer/HUD")
+@onready var footstep_player = $FootstepPlayer
 
 
 
@@ -129,7 +130,9 @@ func get_interactable_chest():
 func perform_attack():
 	can_attack = false
 	is_attacking = true
-
+	
+	await get_tree().create_timer(0.35).timeout
+	$SlashSound.play()
 	animation_player.stop()
 	animation_player.play("1H_Melee_Attack_Slice_Diagonal", -1, 1.0)
 	animation_player.seek(0, true)
@@ -209,9 +212,17 @@ func handle_movement(delta):
 
 		# Check if sprinting
 		var current_speed = walk_speed
+		var target_pitch = 1.0
 		if Input.is_action_pressed("sprint"): 
 			current_speed = run_speed
+			target_pitch = 1.5
 
+		if not footstep_player.playing:
+			footstep_player.pitch_scale = target_pitch
+			footstep_player.play()
+		else:
+			footstep_player.pitch_scale = target_pitch
+			
 		# Convert movement direction into rotation
 		var target_rotation_y = atan2(input_dir.x, input_dir.z)
 		rotation.y = lerp_angle(rotation.y, target_rotation_y, 10.0 * delta)
@@ -222,6 +233,9 @@ func handle_movement(delta):
 	else:
 		#Stop the player when no input is detected
 		velocity = Vector3.ZERO  
+		
+		if footstep_player.playing:
+			footstep_player.stop()
 
 	move_and_slide()
 

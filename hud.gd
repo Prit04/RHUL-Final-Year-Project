@@ -12,7 +12,8 @@ var current_health = 5
 var score = 0
 
 func _ready():
-	high_score = load_high_score()  # Only load high score
+
+	high_score = load_high_score()  # Only load high score  
 	score = 0  # Reset score when starting/retrying
 	update_health(current_health, max_health)
 	update_score_display()
@@ -69,6 +70,8 @@ func add_score(amount: int):
 		show_new_high_score_message()
 		save_score()  
 	update_score_display()
+	if has_node("Points"):
+		$Points.play()
 
 	
 func show_new_high_score_message():

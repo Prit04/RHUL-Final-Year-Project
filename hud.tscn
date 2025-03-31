@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfo8vu5ys4rv0"]
+[gd_scene load_steps=9 format=3 uid="uid://bfo8vu5ys4rv0"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_g0sn5"]
 [ext_resource type="Texture2D" uid="uid://cd370v4olwf5d" path="res://UI assets/UI/HeartIcons_32x32.png" id="2_rg557"]
 [ext_resource type="Texture2D" uid="uid://c8erci7r8ftkj" path="res://UI assets/UI/TitleBox_64x16.png" id="3_8upr0"]
 [ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="3_klk2e"]
+[ext_resource type="AudioStream" uid="uid://das1hf4mk0mrr" path="res://Audio/Points.mp3" id="5_14cuv"]
 
 [sub_resource type="Animation" id="Animation_mh3d5"]
 length = 0.001
@@ -110,3 +111,6 @@ offset_bottom = 110.0
 theme_override_fonts/font = ExtResource("3_klk2e")
 theme_override_font_sizes/font_size = 16
 text = "NEW HIGH SCORE!"
+
+[node name="Points" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_14cuv")

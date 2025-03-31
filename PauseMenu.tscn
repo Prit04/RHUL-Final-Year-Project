@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sjm4n5hkqqg"]
+[gd_scene load_steps=6 format=3 uid="uid://2sjm4n5hkqqg"]
 
 [ext_resource type="Script" path="res://PauseMenu.gd" id="1_74570"]
 [ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="2_2ahsl"]
 [ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://StyledButton.tscn" id="2_c40v8"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="4_a0k5q"]
 
 [sub_resource type="Theme" id="Theme_ywshi"]
 
@@ -53,3 +54,6 @@ scale = Vector2(1.80117, 2.04872)
 mouse_filter = 2
 color = Color(1, 1, 1, 0.2)
 metadata/_edit_use_anchors_ = true
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a0k5q")

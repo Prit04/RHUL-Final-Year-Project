@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dos3aa6nfvicg"]
+[gd_scene load_steps=6 format=3 uid="uid://dos3aa6nfvicg"]
 
 [ext_resource type="Script" path="res://GameOver.gd" id="1_s1nir"]
 [ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://StyledButton.tscn" id="2_ybyce"]
 [ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="3_nlr8b"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="4_5sfpt"]
 
 [sub_resource type="Theme" id="Theme_rgb1i"]
 
@@ -48,3 +49,6 @@ offset_bottom = 145.0
 theme_override_fonts/font = ExtResource("3_nlr8b")
 theme_override_font_sizes/font_size = 58
 text = "YOU DIED!"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5sfpt")

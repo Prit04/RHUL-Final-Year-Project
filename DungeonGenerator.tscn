@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpbxiff6dejs1"]
+[gd_scene load_steps=11 format=3 uid="uid://bpbxiff6dejs1"]
 
 [ext_resource type="Script" path="res://DungeonGenerator.gd" id="1_82w1m"]
 [ext_resource type="PackedScene" uid="uid://bhhr350rm8v24" path="res://dungeonRoom.tscn" id="2_jd02l"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfo8vu5ys4rv0" path="res://hud.tscn" id="5_vge5d"]
 [ext_resource type="PackedScene" uid="uid://c6st6fddns3fu" path="res://potion.tscn" id="6_sof5x"]
 [ext_resource type="PackedScene" uid="uid://dos3aa6nfvicg" path="res://GameOver.tscn" id="7_ffre0"]
+[ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="10_konmy"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_82w1m")
@@ -26,3 +27,9 @@ max_rooms = 10
 [node name="HUD" parent="CanvasLayer" groups=["hud"] instance=ExtResource("5_vge5d")]
 
 [node name="GameOver" parent="." instance=ExtResource("7_ffre0")]
+
+[node name="BGM" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_konmy")
+volume_db = -9.143
+autoplay = true
+parameters/looping = true

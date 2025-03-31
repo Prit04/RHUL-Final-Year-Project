@@ -1,4 +1,5 @@
 extends Control
+@onready var click_player = $ClickPlayer
 
 func _ready():
 	if $MenuAnimationPlayer.has_animation("fade_in"):
@@ -9,10 +10,16 @@ func _ready():
 	$VBoxContainer/ExitButton.pressed.connect(_on_exit_button_pressed)
 
 func _on_start_button_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().change_scene_to_file("res://DungeonGenerator.tscn")
 
 func _on_options_button_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().change_scene_to_file("res://OptionsMenu.tscn")
 
 func _on_exit_button_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().quit()

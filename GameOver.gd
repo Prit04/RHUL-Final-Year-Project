@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var play_again_button = $VBoxContainer/PlayAgainButton
 @onready var main_menu_button = $VBoxContainer/MainMenuButton
+@onready var click_player = $ClickPlayer
 
 func _ready():
 	visible = false
@@ -9,6 +10,8 @@ func _ready():
 	main_menu_button.pressed.connect(on_main_menu_pressed)
 
 func on_play_again_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
@@ -17,5 +20,7 @@ func on_play_again_pressed():
 
 
 func on_main_menu_pressed():
+	click_player.play()
+	await $ClickPlayer.finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://control.tscn")  

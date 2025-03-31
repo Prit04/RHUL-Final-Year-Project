@@ -11,5 +11,10 @@ func interact():
 	if player and player.has_method("heal"):
 		player.heal(heal_amount)
 		print("Potion used! Healed for", heal_amount, "HP.")
+		
+		if has_node("PotionDrinkSound"):
+			$PotionDrinkSound.play()
+			
 		used = true
+		await get_tree().create_timer(1.35).timeout
 		queue_free()  # remove potion from scene 

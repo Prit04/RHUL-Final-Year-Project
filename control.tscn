@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cny51xptnsdk1"]
+[gd_scene load_steps=19 format=3 uid="uid://cny51xptnsdk1"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_1smaw"]
 [ext_resource type="Texture2D" uid="uid://r2ijn81l73rq" path="res://UI assets/mainmenu.webp" id="2_v7cav"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://StyledButton.tscn" id="3_cpbj0"]
 [ext_resource type="Texture2D" uid="uid://c7urheojdg50x" path="res://UI assets/pressed.tres" id="4_cildj"]
 [ext_resource type="Texture2D" uid="uid://c5edsk3bbqfru" path="res://UI assets/Atlas.tres" id="5_gflfo"]
+[ext_resource type="AudioStream" uid="uid://dxc8yr3p15prf" path="res://Audio/The_SevenBGM.ogg" id="8_aobb2"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="9_agep2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhy7o"]
 texture = ExtResource("3_c0nsy")
@@ -129,3 +131,12 @@ text = "Exit"
 libraries = {
 "": SubResource("AnimationLibrary_d7tel")
 }
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_aobb2")
+volume_db = -7.495
+autoplay = true
+parameters/looping = true
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_agep2")

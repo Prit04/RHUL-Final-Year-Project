@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crii7b610b83y"]
+[gd_scene load_steps=31 format=3 uid="uid://crii7b610b83y"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_12fof"]
 [ext_resource type="PackedScene" uid="uid://bnyeu5fu13xt4" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_doorway.fbx" id="1_jqns6"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dax5b62tmv8no" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/box_stacked.fbx" id="23_uhgvh"]
 [ext_resource type="PackedScene" uid="uid://dvkxlle0kahi5" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large_rocky.fbx" id="24_xbo0a"]
 [ext_resource type="PackedScene" uid="uid://c24ul1eo5rbqp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large.fbx" id="25_hwk0x"]
+[ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="26_pn14v"]
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_47se8"]
 [ext_resource type="PackedScene" uid="uid://derdcpswru0li" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_scaffold.fbx" id="35_b0v4s"]
 
@@ -944,3 +945,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.144186, 19.82
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 25.9016)
 
 [node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("26_pn14v")
+volume_db = -7.207
+autoplay = true
+parameters/looping = true
