@@ -1,30 +1,140 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl3fb84jgpreq"]
+[gd_scene load_steps=8 format=3 uid="uid://cl3fb84jgpreq"]
 
 [ext_resource type="Script" path="res://options_menu.gd" id="1_h5bt2"]
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="2_styja"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="3_sfrm5"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1giga"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vpe5s"]
+color = Color(1, 1, 1, 1)
+grow_begin = -10.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_puhgt"]
+color = Color(1, 1, 1, 1)
+grow_begin = -11.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fo8qv"]
+color = Color(1, 1, 1, 1)
+grow_begin = -11.0
+thickness = 4
+
+[node name="OptionsMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 353.0
+offset_right = 488.0
+offset_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_h5bt2")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "OPTIONS MENU PLACEHOLDER
-"
-horizontal_alignment = 1
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = -758.0
+offset_top = -635.0
+offset_right = 1589.0
+offset_bottom = 927.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1giga")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -261.0
-offset_top = -154.0
-offset_right = -194.0
-offset_bottom = -123.0
+offset_left = 110.0
+offset_top = -35.0
+offset_right = 334.0
+offset_bottom = 201.0
+scale = Vector2(1.51546, 1.39704)
+
+[node name="Audio Settings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+text = "Audio Settings"
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="VBoxContainer/MasterVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 9
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_vpe5s")
+
+[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="VBoxContainer/MusicVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_puhgt")
+
+[node name="SFXVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="VBoxContainer/SFXVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 16
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_fo8qv")
+
+[node name="VideoSettings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 9
+text = "Fullscreen"
+
+[node name="VSyncCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 12
+text = "VSync"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_styja")
+theme_override_font_sizes/font_size = 21
 text = "Back"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sfrm5")
+bus = &"SFX"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

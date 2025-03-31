@@ -112,10 +112,12 @@ player = NodePath("..")
 
 [node name="SlashSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_n5bmh")
+bus = &"SFX"
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_07myn")
 volume_db = -2.883
+bus = &"SFX"
 parameters/looping = true
 
 [editable path="Knight"]

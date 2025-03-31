@@ -32,4 +32,5 @@ max_rooms = 10
 stream = ExtResource("10_konmy")
 volume_db = -9.143
 autoplay = true
+bus = &"Music"
 parameters/looping = true

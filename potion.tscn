@@ -24,3 +24,4 @@ attenuation_model = 3
 volume_db = -10.0
 unit_size = 1.0
 max_distance = 50.27
+bus = &"SFX"

@@ -35,6 +35,8 @@ func _on_exit_pressed():
 
 func _on_options_pressed():
 	click_player.play()
-	await $ClickPlayer.finished
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://OptionsMenu.tscn")
+	await click_player.finished
+
+	var options_scene = preload("res://OptionsMenu.tscn")
+	var options_instance = options_scene.instantiate()
+	add_child(options_instance)

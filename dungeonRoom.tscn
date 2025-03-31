@@ -959,4 +959,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 19.8
 stream = ExtResource("29_vl2p5")
 volume_db = -7.232
 autoplay = true
+bus = &"SFX"
 parameters/looping = true
