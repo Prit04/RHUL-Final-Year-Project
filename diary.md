@@ -202,3 +202,4 @@ I am working on adding audio and SFX to the game.
 
 ### 01/4/2025
 I added some simple fade animations to the menus, i have also added shadows to the player and enemy to make them look more natural. I will now work on further polishes. I have implemented a ambeince of fog and light flicker, along with damage feedback in the camera shaking to show the player theyve taken damage.
+<br /> <br />Despite minimum time being left, after the play test, players did ask for anotehr enemy, so i added a mage who does ranged attacks.
