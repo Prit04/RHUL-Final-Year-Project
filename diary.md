@@ -198,3 +198,7 @@ I worked on getting a proper score system in place. I updated the HUD to display
 I am working on adding audio and SFX to the game.
 <br /> <br />Today I fully integrated sound into the game, adding audio for both gameplay and UI. The player now has footstep and attack sounds, potions and chests play pickup effects, skeleton enemies have unique wake-up, walking, and death SFX.
 <br /> <br />The options menu for the game is now fully functional, it can be accessed in the main menu and the pause maneu of the play state. The settings contain audio and video settings. Now i will work on polishing some things and some refactoring of the code.
+
+
+### 01/4/2025
+I added some simple fade animations to the menus, i have also added shadows to the player and enemy to make them look more natural. I will now work on further polishes.
