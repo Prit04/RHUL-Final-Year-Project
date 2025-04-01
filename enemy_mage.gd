@@ -66,7 +66,7 @@ func move_towards(target: Vector3, move_speed: float, delta: float):
 
 func cast_spell():
 	if health <= 0 or player == null or not is_instance_valid(player):
-		return  # Don't start casting if already dead or no player
+		return  
 
 	is_casting = true
 	can_attack = false
@@ -81,7 +81,6 @@ func cast_spell():
 	anim_player.play("Spellcast_Shoot")
 	await anim_player.animation_finished
 
-	# 💀 Check again in case the mage died during the animation
 	if health <= 0:
 		is_casting = false
 		return
