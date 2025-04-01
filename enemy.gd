@@ -34,11 +34,8 @@ signal died  # Signal when the enemy dies
 func _ready():
 	spawn_position = global_transform.origin
 	anim_player.play("Skeletons_Inactive_Floor_Pose")  # Start in idle floor pose
-	update_health_label()
-	
-func update_health_label():
-	if health_label:
-		health_label.text = str(health, " / 30")  
+
+
 
 
 func _physics_process(delta: float) -> void:
@@ -157,7 +154,6 @@ func take_damage(amount):
 	health -= amount
 	print("Enemy took", amount, "damage. Remaining health:", health)
 	
-	update_health_label()
 		
 	if health <= 0:
 		die()
