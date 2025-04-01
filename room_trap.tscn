@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://crii7b610b83y"]
+[gd_scene load_steps=35 format=3 uid="uid://crii7b610b83y"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_12fof"]
 [ext_resource type="PackedScene" uid="uid://bnyeu5fu13xt4" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_doorway.fbx" id="1_jqns6"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dax5b62tmv8no" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/box_stacked.fbx" id="23_uhgvh"]
 [ext_resource type="PackedScene" uid="uid://dvkxlle0kahi5" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large_rocky.fbx" id="24_xbo0a"]
 [ext_resource type="PackedScene" uid="uid://c24ul1eo5rbqp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_dirt_large.fbx" id="25_hwk0x"]
+[ext_resource type="Script" path="res://Flicker.gd" id="26_gqypv"]
 [ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="26_pn14v"]
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_47se8"]
 [ext_resource type="PackedScene" uid="uid://c1ykr8a7o1e4l" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/table_long_broken.fbx" id="27_unxwv"]
@@ -854,6 +855,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.174355, 20.4)
 
 [node name="torch_lit" parent="." instance=ExtResource("27_47se8")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.21699, 8.62417)
+script = ExtResource("26_gqypv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -867,6 +869,7 @@ shadow_enabled = true
 
 [node name="torch_lit2" parent="." instance=ExtResource("27_47se8")]
 transform = Transform3D(0.0592332, -0.463168, -0.884289, 0.010355, 0.886082, -0.463413, 0.99819, 0.0182925, 0.0572816, 15.3594, 2.25786, 16.0369)
+script = ExtResource("26_gqypv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -931,6 +934,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22)
 
 [node name="torch_lit3" parent="." instance=ExtResource("27_47se8")]
 transform = Transform3D(-0.756812, 0.0841727, -0.64819, 0.306411, 0.921647, -0.238074, 0.577363, -0.37879, -0.723305, -6.11495, 2.19886, 31.6622)
+script = ExtResource("26_gqypv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)

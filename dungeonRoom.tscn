@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bhhr350rm8v24"]
+[gd_scene load_steps=37 format=3 uid="uid://bhhr350rm8v24"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_qwcmi"]
 [ext_resource type="PackedScene" uid="uid://co5oux46yr7sw" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="2_tc2tf"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_yt236"]
 [ext_resource type="PackedScene" uid="uid://bc2ydcotn1im1" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/bucket_pickaxes.fbx" id="28_qoch4"]
 [ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="29_vl2p5"]
+[ext_resource type="Script" path="res://Flicker.gd" id="30_subdy"]
 [ext_resource type="PackedScene" uid="uid://50xhkk8dcktx" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/stool_round.fbx" id="30_vutq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2a2v"]
@@ -43,9 +44,9 @@ glow_enabled = true
 glow_intensity = 1.06
 fog_enabled = true
 fog_light_color = Color(0.261951, 0.28694, 0.326222, 1)
-fog_light_energy = 0.48
 fog_sun_scatter = 0.18
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.0314
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v15la"]
 size = Vector3(25, 1, 25)
@@ -882,6 +883,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.0465878, 20.4)
 
 [node name="torch_lit" parent="." instance=ExtResource("27_yt236")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.21699, 8.62417)
+script = ExtResource("30_subdy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -892,12 +894,14 @@ light_volumetric_fog_energy = 2.151
 light_size = 0.263
 light_specular = 3.151
 shadow_enabled = true
+omni_range = 6.28
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nquel")
 
 [node name="torch_lit2" parent="." instance=ExtResource("27_yt236")]
 transform = Transform3D(0.0592332, -0.463168, -0.884289, 0.010355, 0.886082, -0.463413, 0.99819, 0.0182925, 0.0572816, 15.3455, 2.25786, 16.0369)
+script = ExtResource("30_subdy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -908,6 +912,7 @@ light_volumetric_fog_energy = 2.151
 light_size = 0.263
 light_specular = 3.151
 shadow_enabled = true
+omni_range = 8.809
 
 [node name="wall_doorway3" parent="." instance=ExtResource("20_7f7yt")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.00144, 0, 32)
@@ -980,6 +985,7 @@ parameters/looping = true
 
 [node name="torch_lit3" parent="." instance=ExtResource("27_yt236")]
 transform = Transform3D(-0.991213, -0.0520203, -0.121616, 0.010355, 0.886082, -0.463413, 0.131868, -0.460601, -0.877757, 6.13169, 2.25786, 31.6186)
+script = ExtResource("30_subdy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -990,6 +996,8 @@ light_volumetric_fog_energy = 2.151
 light_size = 0.263
 light_specular = 3.151
 shadow_enabled = true
+omni_range = 6.942
+omni_attenuation = 0.66
 
 [node name="stool_round" parent="." instance=ExtResource("30_vutq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.084, 0.0363311, 30.9266)

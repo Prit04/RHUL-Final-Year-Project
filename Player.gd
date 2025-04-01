@@ -30,7 +30,9 @@ func take_damage(damage):
 
 	current_health -= damage
 	current_health = clamp(current_health, 0, max_health)
-
+	var camera = get_tree().get_root().find_child("Camera3D", true, false)
+	if camera and camera.has_method("shake_camera"):
+		camera.shake_camera()
 	var hearts_to_show = ceil(float(current_health) / 20.0)
 	if hud:
 		hud.update_health(hearts_to_show, 5)  
