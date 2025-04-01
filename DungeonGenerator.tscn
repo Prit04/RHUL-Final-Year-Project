@@ -28,7 +28,7 @@ max_rooms = 10
 
 [node name="GameOver" parent="." instance=ExtResource("7_ffre0")]
 
-[node name="BGM" type="AudioStreamPlayer3D" parent="."]
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_konmy")
 volume_db = -9.143
 autoplay = true

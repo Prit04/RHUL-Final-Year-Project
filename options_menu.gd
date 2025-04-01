@@ -10,6 +10,7 @@ extends Control
 @onready var click_player = $ClickPlayer
 
 func _ready():
+	$AnimationPlayer.play("fade_in")
 	# Set initial values
 	master_slider.value = Settings.master_volume
 	music_slider.value = Settings.music_volume
@@ -42,4 +43,6 @@ func _on_video_setting_changed(_pressed):
 func _on_back_button_pressed():
 	click_player.play()
 	await $ClickPlayer.finished
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	queue_free()  

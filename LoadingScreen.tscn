@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dthtwm5bcm5s0"]
+[gd_scene load_steps=6 format=3 uid="uid://ex4my6ejl4ol"]
 
 [ext_resource type="Script" path="res://LoadingScreen.gd" id="1_cn34s"]
 [ext_resource type="Texture2D" uid="uid://bfuehg4un4o7n" path="res://UI assets/PBM.png" id="2_kb0fb"]
@@ -51,6 +51,14 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.30166, 1.28023)
 script = ExtResource("1_cn34s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -3581.0
+offset_top = -4136.0
+offset_right = 7607.0
+offset_bottom = 4575.0
+color = Color(0, 0, 0, 1)
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
