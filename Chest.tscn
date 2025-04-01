@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cdo4jpwpu42da"]
+[gd_scene load_steps=13 format=4 uid="uid://cdo4jpwpu42da"]
 
 [ext_resource type="Texture2D" uid="uid://bhycfwhjfn0xi" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/dungeon_texture.png" id="1_ddrr5"]
 [ext_resource type="Script" path="res://chest.gd" id="2_d2sfw"]
@@ -76,9 +76,45 @@ shadow_mesh = SubResource("ArrayMesh_q0i08")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7q5uw"]
 
+[sub_resource type="Animation" id="Animation_yrgln"]
+resource_name = "open"
+length = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chest_gold/chest_gold_lid:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.74533, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3qdae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chest_gold/chest_gold_lid:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ms5b0"]
+_data = {
+"RESET": SubResource("Animation_3qdae"),
+"open": SubResource("Animation_yrgln")
+}
 
 [node name="Chest" type="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("2_d2sfw")
 
 [node name="chest_gold" type="MeshInstance3D" parent="."]

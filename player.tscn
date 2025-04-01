@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c32di2fuq4ls3"]
+[gd_scene load_steps=11 format=3 uid="uid://c32di2fuq4ls3"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_2d50e"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_co7la"]
@@ -6,15 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://dxcvlhb4yy8nu" path="res://UI assets/Free Essential Animation CC0/Idle.fbx" id="3_wgjsa"]
 [ext_resource type="AudioStream" uid="uid://c530c60prc0jr" path="res://Audio/slash-sword-joshua-chivers-2-2-00-00.mp3" id="5_n5bmh"]
 [ext_resource type="AudioStream" uid="uid://bqe6r6b76igam" path="res://Audio/Walking.mp3" id="6_07myn"]
+[ext_resource type="Texture2D" uid="uid://bgijlnkrb4qer" path="res://Assets/circular_shadow.png" id="7_cg5bu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckcr4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1thp2"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("7_cg5bu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p3raw"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(-0.999987, 0, -0.00513113, 0, 1, 0, 0.00513113, 0, -0.999987, 0.00140941, 0.0138233, -0.00560951)
 script = ExtResource("1_2d50e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95051, 0)
+transform = Transform3D(1, 0, 0, 0, 1.38688, 0, 0, 0, 1, 0, 1.82486, 0)
 shape = SubResource("CapsuleShape3D_ckcr4")
 
 [node name="Knight" parent="." instance=ExtResource("2_ymmue")]
@@ -119,5 +127,10 @@ stream = ExtResource("6_07myn")
 volume_db = -2.883
 bus = &"SFX"
 parameters/looping = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.15434, 0, -1.39698e-09, 0, 1, 0, -4.65661e-10, 0, 1.17988, 0.00825208, 0.80354, 0.000707062)
+material_override = SubResource("StandardMaterial3D_1thp2")
+mesh = SubResource("PlaneMesh_p3raw")
 
 [editable path="Knight"]

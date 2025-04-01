@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bhhr350rm8v24"]
+[gd_scene load_steps=36 format=3 uid="uid://bhhr350rm8v24"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_qwcmi"]
 [ext_resource type="PackedScene" uid="uid://co5oux46yr7sw" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="2_tc2tf"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bba003i2o3ugd" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/torch_lit.fbx" id="27_yt236"]
 [ext_resource type="PackedScene" uid="uid://bc2ydcotn1im1" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/bucket_pickaxes.fbx" id="28_qoch4"]
 [ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="29_vl2p5"]
+[ext_resource type="PackedScene" uid="uid://50xhkk8dcktx" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/stool_round.fbx" id="30_vutq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2a2v"]
 size = Vector3(1.69427, 1.13715, 1)
@@ -38,11 +39,19 @@ size = Vector3(1, 1, 4)
 
 [sub_resource type="Environment" id="Environment_nquel"]
 background_mode = 1
+glow_enabled = true
+glow_intensity = 1.06
+fog_enabled = true
+fog_light_color = Color(0.261951, 0.28694, 0.326222, 1)
+fog_light_energy = 0.48
+fog_sun_scatter = 0.18
+volumetric_fog_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v15la"]
 size = Vector3(25, 1, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi3qv"]
+size = Vector3(1, 1.95361, 1)
 
 [node name="DungeonRoom" type="Node3D"]
 
@@ -869,7 +878,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 17)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, 20)
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.0867776, 20.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.1, 4, 0.0465878, 20.4)
 
 [node name="torch_lit" parent="." instance=ExtResource("27_yt236")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.21699, 8.62417)
@@ -888,7 +897,7 @@ shadow_enabled = true
 environment = SubResource("Environment_nquel")
 
 [node name="torch_lit2" parent="." instance=ExtResource("27_yt236")]
-transform = Transform3D(0.0592332, -0.463168, -0.884289, 0.010355, 0.886082, -0.463413, 0.99819, 0.0182925, 0.0572816, 15.0683, 2.25786, 16.0369)
+transform = Transform3D(0.0592332, -0.463168, -0.884289, 0.010355, 0.886082, -0.463413, 0.99819, 0.0182925, 0.0572816, 15.3455, 2.25786, 16.0369)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="torch_lit2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
@@ -924,8 +933,13 @@ shape = SubResource("BoxShape3D_v15la")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 5, 21.3765, 19.477)
+visible = false
 light_color = Color(1, 0.977234, 0.969106, 1)
 light_energy = 0.1
+shadow_normal_bias = 2.046
+shadow_reverse_cull_face = true
+shadow_opacity = 0.14
+shadow_blur = 3.648
 
 [node name="EnemySpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4521)
@@ -937,23 +951,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29039, 0, -4.15877)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3388, 0, 9.21084)
 
 [node name="bucket_pickaxes" parent="." instance=ExtResource("28_qoch4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0735, -0.248845, 16.996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.05213, -0.248845, 17.7535)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bucket_pickaxes"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bucket_pickaxes/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812797, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2896, 0)
 shape = SubResource("BoxShape3D_qi3qv")
 
 [node name="ChestSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6396, 4.09586, 0.268919, 20.1148)
 
 [node name="ChestSpawn" type="Marker3D" parent="ChestSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.108056, 0)
 
 [node name="PotionSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 19.8078)
 
 [node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495093, 0)
 
 [node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("29_vl2p5")
@@ -961,3 +977,19 @@ volume_db = -7.232
 autoplay = true
 bus = &"SFX"
 parameters/looping = true
+
+[node name="torch_lit3" parent="." instance=ExtResource("27_yt236")]
+transform = Transform3D(-0.991213, -0.0520203, -0.121616, 0.010355, 0.886082, -0.463413, 0.131868, -0.460601, -0.877757, 6.13169, 2.25786, 31.6186)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torch_lit3"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.000341892, 0.598954, -0.118906)
+light_color = Color(1, 0.717647, 0.462745, 1)
+light_energy = 3.194
+light_indirect_energy = 4.474
+light_volumetric_fog_energy = 2.151
+light_size = 0.263
+light_specular = 3.151
+shadow_enabled = true
+
+[node name="stool_round" parent="." instance=ExtResource("30_vutq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.084, 0.0363311, 30.9266)
