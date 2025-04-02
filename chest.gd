@@ -1,5 +1,6 @@
 extends StaticBody3D
 
+## -- Chest Logic Script --
 ## Handles chest interactions: animation, sound, and score update on player interaction.
 
 @export var chest_value := 750  # Score awarded when chest is opened
