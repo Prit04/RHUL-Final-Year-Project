@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bhhr350rm8v24"]
+[gd_scene load_steps=42 format=3 uid="uid://bhhr350rm8v24"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_qwcmi"]
 [ext_resource type="PackedScene" uid="uid://co5oux46yr7sw" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="2_tc2tf"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="29_vl2p5"]
 [ext_resource type="Script" path="res://Flicker.gd" id="30_subdy"]
 [ext_resource type="PackedScene" uid="uid://50xhkk8dcktx" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/stool_round.fbx" id="30_vutq5"]
+[ext_resource type="PackedScene" uid="uid://s8wgy77j0ckw" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/crate_large_decorated.fbx" id="32_gn63e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2a2v"]
 size = Vector3(1.69427, 1.13715, 1)
@@ -62,6 +63,9 @@ size = Vector3(25, 1, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qi3qv"]
 size = Vector3(1, 1.95361, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btwn4"]
+size = Vector3(2.36017, 1.91699, 1.62518)
 
 [node name="DungeonRoom" type="Node3D"]
 
@@ -1140,7 +1144,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 19.8078)
 
 [node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495093, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.665521, -0.495093, -1.89632)
 
 [node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("29_vl2p5")
@@ -1167,3 +1171,12 @@ omni_attenuation = 0.66
 
 [node name="stool_round" parent="." instance=ExtResource("30_vutq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.084, 0.0363311, 30.9266)
+
+[node name="crate_large_decorated" parent="." instance=ExtResource("32_gn63e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41242, 0.056654, 14.985)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="crate_large_decorated"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crate_large_decorated/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281067, 0.458496, 0.0503845)
+shape = SubResource("BoxShape3D_btwn4")

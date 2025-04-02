@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://crii7b610b83y"]
+[gd_scene load_steps=45 format=3 uid="uid://crii7b610b83y"]
 
 [ext_resource type="PackedScene" uid="uid://dpph7nk11vdlp" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/floor_tile_large.fbx" id="1_12fof"]
 [ext_resource type="PackedScene" uid="uid://bnyeu5fu13xt4" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_doorway.fbx" id="1_jqns6"]
@@ -29,6 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://c1ykr8a7o1e4l" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/table_long_broken.fbx" id="27_unxwv"]
 [ext_resource type="PackedScene" uid="uid://orgvj56p8q7h" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/stool.fbx" id="28_ao180"]
 [ext_resource type="PackedScene" uid="uid://dpl0b5ajn1klf" path="res://EnemyMage.tscn" id="30_10aah"]
+[ext_resource type="PackedScene" uid="uid://bgeobhpw2v25q" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/crates_stacked.fbx" id="31_h4tdk"]
+[ext_resource type="PackedScene" uid="uid://by2ajhmw8eul6" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/keyring.fbx" id="32_hfe6d"]
+[ext_resource type="PackedScene" uid="uid://d0tyb27unsksb" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/sword_shield_broken.fbx" id="33_18uul"]
+[ext_resource type="PackedScene" uid="uid://dv8fjqu0ujurh" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/bed_floor.fbx" id="34_s0gi2"]
 [ext_resource type="PackedScene" uid="uid://derdcpswru0li" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/fbx/wall_scaffold.fbx" id="35_b0v4s"]
 
 [sub_resource type="Environment" id="Environment_nquel"]
@@ -54,6 +58,12 @@ size = Vector3(2.09528, 1.82422, 4.57092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4kp2p"]
 size = Vector3(23.8813, 0.0918427, 24.1892)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7j25"]
+size = Vector3(1.93555, 2.94727, 2.23773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_03bon"]
+size = Vector3(1.4248, 1, 2.83734)
 
 [node name="TrapRoom" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
@@ -600,6 +610,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4521)
 [node name="EnemySpawn1" type="Marker3D" parent="EnemySpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29039, 0, -4.15877)
 
+[node name="EnemySpawn2" type="Marker3D" parent="EnemySpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60517, 0, 5.46184)
+
 [node name="floor_tile_large16" parent="." instance=ExtResource("1_12fof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
 
@@ -641,6 +654,7 @@ transform = Transform3D(-0.999996, 2.42606e-10, 0.00455001, -1.11325e-15, -1, 1.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.68829, 10.5512, 0.537838, 25.9016)
 
 [node name="PotionSpawn" type="Marker3D" parent="PotionSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31175, 0, -0.717902)
 
 [node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("26_pn14v")
@@ -680,3 +694,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02386, 0, 18)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13209, 0.0507431, 19.7936)
 shape = SubResource("BoxShape3D_4kp2p")
+
+[node name="crates_stacked" parent="." instance=ExtResource("31_h4tdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592053, 0.0966644, 27.6492)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="crates_stacked"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crates_stacked/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110352, 0.973633, -0.107269)
+shape = SubResource("BoxShape3D_j7j25")
+
+[node name="keyring" parent="." instance=ExtResource("32_hfe6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09568, 0.0966644, 17.1377)
+
+[node name="sword_shield_broken" parent="." instance=ExtResource("33_18uul")]
+transform = Transform3D(0.934463, 0.355951, -0.00878591, -0.0262931, 0.0935924, 0.995263, 0.355087, -0.929806, 0.0968178, 7.78574, 0.1322, 24.0177)
+
+[node name="bed_floor" parent="." instance=ExtResource("34_s0gi2")]
+transform = Transform3D(-0.51399, 0, 0.857796, 0, 1, 0, -0.857796, 0, -0.51399, 13.3068, 0.0966644, 26.0127)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bed_floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bed_floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.212402, 0, -0.00765777)
+shape = SubResource("BoxShape3D_03bon")

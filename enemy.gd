@@ -21,7 +21,7 @@ var current_state = State.IDLE
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var nav_agent = $NavigationAgent3D
 @onready var anim_player = $Skeleton_Minion/AnimationPlayer
-@onready var health_label = $Skeleton_Minion/HealthLabel
+
 
 @onready var wake_sfx = $WakeSFX
 @onready var walk_sfx = $WalkSFX
@@ -63,10 +63,7 @@ func _physics_process(delta: float) -> void:
 	if is_awake and is_player_in_range():
 		attack_player()
 		
-	if health_label:
-		var camera = get_viewport().get_camera_3d()
-		health_label.look_at(camera.global_transform.origin, Vector3.UP)
-		health_label.rotate_y(deg_to_rad(180))  
+
 
 
 func wake_up():

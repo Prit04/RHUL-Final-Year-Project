@@ -47,6 +47,7 @@ func die():
 	if is_dead:
 		return
 	is_dead = true
+	$DeathSFX.play()
 	animation_player.play("Death_B")
 	print("The player has died")
 

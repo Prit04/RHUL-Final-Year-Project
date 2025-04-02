@@ -110,4 +110,9 @@ func die():
 		death_sfx.play()
 	anim_player.play("Death_C_Skeletons")
 	await anim_player.animation_finished
+	var hud = get_tree().get_root().find_child("HUD", true, false)
+	if hud:
+		hud.add_score(350)
+	else:
+		print("HUD not found! Score not updated.")
 	queue_free()
