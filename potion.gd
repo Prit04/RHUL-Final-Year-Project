@@ -1,9 +1,12 @@
 extends StaticBody3D
 
-@export var heal_amount: int = 20
-var used = false
+## --- Healing Potion Script ---
+## Heals the player when interacted with. Plays a drink sound and disappears after a short delay.
 
-func interact():
+@export var heal_amount: int = 20       # Amount of health restored
+var used: bool = false                  # Prevents re-use
+
+func interact() -> void:
 	if used:
 		return
 
@@ -11,10 +14,11 @@ func interact():
 	if player and player.has_method("heal"):
 		player.heal(heal_amount)
 		print("Potion used! Healed for", heal_amount, "HP.")
-		
+
+		# Play drink sound if available
 		if has_node("PotionDrinkSound"):
 			$PotionDrinkSound.play()
-			
+
 		used = true
 		await get_tree().create_timer(1.35).timeout
-		queue_free()  # remove potion from scene 
+		queue_free()  # Remove the potion after sound plays
