@@ -35,14 +35,15 @@ autowrap_mode = 2
 
 [node name="AssetCredits" type="Label" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 58.0
-offset_right = 445.0
-offset_bottom = 639.0
+offset_left = 33.0
+offset_top = -46.0
+offset_right = 450.0
+offset_bottom = 535.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_oo342")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 11
 text = "🛠️ Asset Credits 🛠️ 
+
 
 KayKit Character Pack, Dungeon Remastered & Skeletons
 Created by: Kay Lousberg - https://www.kaylousberg.com/
@@ -60,16 +61,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AUdioCredits" type="Label" parent="."]
+[node name="AudioCredits" type="Label" parent="."]
 layout_mode = 0
-offset_left = 707.0
-offset_top = -54.0
-offset_right = 1117.0
-offset_bottom = 711.0
+offset_left = 590.0
+offset_top = 81.0
+offset_right = 1000.0
+offset_bottom = 342.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_oo342")
 theme_override_font_sizes/font_size = 11
 text = "🎧 Audio Credits 🎧
+
 
 Background Music
 
@@ -82,8 +84,20 @@ Source: YouTube
 License: Free to use with attribution
 Used as ambient background music throughout the Menu.
 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-Sound Effects
+[node name="AudioCredits2" type="Label" parent="."]
+offset_left = 470.0
+offset_top = 333.0
+offset_right = 1122.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 11
+text = "Sound Effects
 
 Multiple sound effects were sourced from free-to-use libraries with appropriate licenses. Some effects were trimmed or modified to suit gameplay needs.
 
