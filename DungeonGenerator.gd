@@ -16,6 +16,8 @@ var potions_spawned = 0
 
 
 
+
+
 @export var max_rooms: int = 12
 @export var max_trap_rooms: int = 2  # Limit trap rooms
 @onready var pause_menu = $PauseMenu
@@ -225,19 +227,29 @@ func link_doors(prev_room, new_room, offset):
 	else:
 		print("Failed to link doors! Check door placement in scenes.")
 
+
+
+
 # Finding doorways properly
-func get_doorway(room, offset) -> Area3D:
-	for child in room.get_children():
-		if child is Area3D and child.is_in_group("doorways"):
-			if offset == Vector3(25, 0, 0) and child.name == "Doorway_East":
-				return child
-			if offset == Vector3(-25, 0, 0) and child.name == "Doorway_West":
-				return child
-			if offset == Vector3(0, 0, 25) and child.name == "Doorway_North":
-				return child
-			if offset == Vector3(0, 0, -25) and child.name == "Doorway_South":
-				return child
-	return null  
+func get_doorway(room: Node3D, offset: Vector3) -> Area3D:
+	var doors = room.find_children("", "Area3D", true)  # 🔁 Recursively find Area3Ds
+	for door in doors:
+		if door.is_in_group("doorways"):
+			match offset:
+				Vector3(25, 0, 0):
+					if door.name == "Doorway_East":
+						return door
+				Vector3(-25, 0, 0):
+					if door.name == "Doorway_West":
+						return door
+				Vector3(0, 0, 25):
+					if door.name == "Doorway_North":
+						return door
+				Vector3(0, 0, -25):
+					if door.name == "Doorway_South":
+						return door
+	return null
+
 
 func get_room_size(room: Node3D) -> Vector3:
 	var room_size = Vector3.ZERO
@@ -253,6 +265,7 @@ func get_room_size(room: Node3D) -> Vector3:
 
 	print("WARNING: Room size not found for Room:", room.name, " Using default 10x10!")
 	return Vector3(10, 0, 10)  # Default size if no valid CollisionShape3D found
+	
 
 func cleanup_dungeon():
 	print("Cleaning up old dungeon...")

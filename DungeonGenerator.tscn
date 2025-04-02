@@ -17,8 +17,11 @@ starting_room_scene = ExtResource("2_jd02l")
 player_scene = ExtResource("3_v4glu")
 enemy_scene = ExtResource("4_y7jp2")
 chest_scene = ExtResource("5_3j06n")
+max_chest_rooms = 7
 potion_scene = ExtResource("6_sof5x")
-max_rooms = 10
+max_potions = 5
+max_rooms = 14
+max_trap_rooms = 4
 
 [node name="Pause" parent="." instance=ExtResource("5_7erwm")]
 

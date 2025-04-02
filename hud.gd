@@ -26,7 +26,7 @@ func save_score():
 	var config = ConfigFile.new()
 	config.set_value("Save", "high_score", high_score)
 	config.save(save_path)
-	print("💾 High Score saved:", high_score)
+	print("High Score saved:", high_score)
 
 
 func load_score():

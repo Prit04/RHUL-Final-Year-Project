@@ -3,6 +3,8 @@ extends CharacterBody3D
 # Movement variables
 @export var walk_speed: float = 5.0
 @export var run_speed: float = 10.0
+@export var gravity := 9.8
+@export var terminal_velocity := 30.0
 
 var attack_range = 2.0
 var attack_damage = 10 
@@ -190,7 +192,20 @@ func get_enemies_in_range() -> Array:
 
 
 func _physics_process(delta):
+	# Gravity
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+		velocity.y = clamp(velocity.y, -terminal_velocity, terminal_velocity)
+	else:
+		velocity.y = 0
+		
+		# Instant death if player falls into the void
+	if global_transform.origin.y < -5.0 and not is_dead:
+		take_damage(9999)  
+
+
 	handle_movement(delta)
+
 
 func handle_movement(delta):
 	if is_dead:
@@ -243,6 +258,7 @@ func handle_movement(delta):
 
 	# Play correct animation
 	update_animation(input_dir)
+
 
 
 	

@@ -159,10 +159,10 @@ stretch_mode = 6
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 729.623
-offset_top = 616.181
-offset_right = 821.623
-offset_bottom = 758.181
+offset_left = 699.164
+offset_top = 619.108
+offset_right = 963.164
+offset_bottom = 775.108
 scale = Vector2(0.651654, 1)
 theme_override_constants/separation = 20
 alignment = 1
