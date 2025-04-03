@@ -1,16 +1,16 @@
 extends Control
 
-@export var next_scene: String = "res://control.tscn"  
+## --- Scene Transition Loader Script ---
+## Plays a fade animation and loads the next scene.
+## Skips transition early if user inputs (key/mouse).
 
-func _ready():
-	# Play the fade-in and fade-out animation
+@export var next_scene: String = "res://control.tscn"  # Target scene path
+
+func _ready() -> void:
 	$AnimationPlayer.play("fade_in_out")
-
-	# Wait for animation to complete, then switch scenes
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file(next_scene)
 
-# Skip loading screen if the player presses any key
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventKey or event is InputEventMouseButton:
 		get_tree().change_scene_to_file(next_scene)

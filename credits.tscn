@@ -90,6 +90,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="AudioCredits2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 333.0
 offset_right = 1122.0
