@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 ## --- Main Gameplay HUD Script ---
+## This is the main HUD for the gameplay, holding values such as the players health and score, along with score saving.
 
 ## --- UI Nodes ---
 @onready var health_container = $MarginContainer/VBoxContainer/HealthContainer

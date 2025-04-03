@@ -1,6 +1,7 @@
 extends Control
 
 ## --- How To Play Menu Script ---
+## --- A menu screen displaying the controls and goals of the game to the player.
 
 ## --- UI Node References ---
 @onready var back_button = $BackButton
