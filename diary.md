@@ -209,3 +209,7 @@ I added some simple fade animations to the menus, i have also added shadows to t
 ### 02/4/2025
 I added a void death to the player to prevent out of bounds traversal. I have also added a credits scene for all assets used. I also removed some files that were unused, such as assets.
 <br /> <br />Refactoring for the code has begun. The camera, chest, control, potion and credits have been done so far.
+
+
+### 03/4/2025
+Ive refactored mageSpell.gd, loading screen, HUD, HowToPlay, game over, flicker, pauseMenu.
