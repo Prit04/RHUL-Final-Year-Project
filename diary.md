@@ -214,4 +214,4 @@ I added a void death to the player to prevent out of bounds traversal. I have al
 ### 03/4/2025
 Ive refactored mageSpell.gd, loading screen, HUD, HowToPlay, game over, flicker, pauseMenu.
 <br /> <br />Its now time for the big refactor and comemnts for the imporant sections of code, smaller scripts have been completed. 
-<br /> <br />Options and Settings scripts done. Along with player, and mage enemey.
+<br /> <br />Options and Settings scripts done. Along with player, and mage enemey. Full refactor and comments of code now complete.
