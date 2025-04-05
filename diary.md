@@ -47,12 +47,12 @@ The project plan has been completed and uploaded to moodle. Now that it is compl
 
 ### 13/10/2024
 
-The Godot IDE is setup, linked with the gitlab, a master branch has been created for the inital work to begin. I wil start,a s stated in the project plan, with the games menu screens. I have created the buttons with a control node, and have attched a script to allow for fucntionality of these menu buttons, this is not finished yet.
+The Godot IDE is setup, linked with the gitlab, a master branch has been created for the inital work to begin, this is the first objective met that was proposed in the timeline. I wil start,a s stated in the project plan, with the games menu screens. I have created the buttons with a control node, and have attched a script to allow for fucntionality of these menu buttons, this is not finished yet. 
 
 
 ### 14/10/2024
 
-I have created placeholder menu screens such as the main menu, game screen, and the options menu. I have partially scripted the menu buttons to be connected to each screen when they are pressed.
+I have created placeholder menu screens such as the main menu, game screen, and the options menu. I have partially scripted the menu buttons to be connected to each screen when they are pressed, this is another objective completed from the plan from week 4-5.
 <br /> <br />I am facing an error while getting the buttons to correspond to their appropriate screen, the change_Screen functions.
 <br /> <br />I have relalised the documentation i was using was for Godot v3 and not v4 which is the version i am using. in v3 they used just change_scene, whereas in v4 they chnaged it to change_scene_to_file("..."), which now works. i will now refer to using the v4 documentation, opposed to the v3 which i wrongly opened. The buttons for the main menu screen now have functionality and take the me to the correct screen. I will now begin on creating a back button for the menus and visually sort them out.
 <br /> <br />I have centred the main menu buttons and gave them lables.
@@ -87,7 +87,7 @@ I have worked on the enemey 3D model and given it a script, which lets it move r
 
 ### 24/10/2024
 
-I implemented a very basic combat system where the player presses the space bar near an enemy and they take damage, once zero they are killed and taken off the screen. i will continue to improve and work on this combat system, but this very basic system will suffice for now.
+I implemented a very basic combat system where the player presses the space bar near an enemy and they take damage, once zero they are killed and taken off the screen. Here many of the early objectives and deliverables i had in the plan have been ticked off, requirng furthr refinement with time. i will continue to improve and work on this combat system, but this very basic system will suffice for now.
 
 
 
@@ -130,11 +130,12 @@ The interim report is all written and the creation of the video demo will be don
 
 
 ### 16/2/2025
-During the Christmas break i conducted in house play testing to gather inital feedback on my game, this helped identify key areas for improvement and things that are working well so far, this is going to guide me for developemen the next few weeks.
+Milestone one was achieved as stated in the project plan, but a a alot more work is to be done, many of the basic features stated however are funcitonal. 
+<br /> <br />During the Christmas break i conducted in house play testing to gather inital feedback on my game, this helped identify key areas for improvement and things that are working well so far, this is going to guide me for developemen the next few weeks.
 
 
 ### 17/2/2025
-Today the main goal was to get the procedural generation sorted.I ensured that rooms spawn dynamically without overlapping, and linked doors correctly between them, so rooms can be travered. I also implemented a player camera system with zoom functionality to improve visibility in the isometric view.
+Today the main goal was to get the procedural generation sorted.I ensured that rooms spawn dynamically without overlapping, and linked doors correctly between them, so rooms can be travered, this was a big objective to get sroted that was stated in the dveelopment plan, ticking this off is a huge goal. I also implemented a player camera system with zoom functionality to improve visibility in the isometric view.
 <br /> <br />
 I also rebuilt the main menu, restructuring the button layout using VBoxContainer for better organization. To improve UI polish, I added a fade-in animation for the menu using AnimationPlayer and the Modulate property, making transitions feel smoother, alogn with a background image for the main menu.
 
@@ -192,6 +193,7 @@ I focused on rewiring the death screen to fit the current system, it works fine 
 ### 28/3/2025
 I worked on getting a proper score system in place. I updated the HUD to display both the current score and the high score, and after a bit of trial and error, I got it to save the high score to a file on death. I ran into a weird issue where the high score kept resetting when I pressed retry, but I eventually figured it out by saving the score before reloading the scene. I tested thoroughly by setting  a high score, beating it to see if it updated, and got a lower one to see if it wasnt replaced, then tested by exiting to main menu and playing again to see if it was still there. Next will be to polish a few things then start working on adding music and SFX along with the options menu.
 <br /> <br />I added a quick polish where it tells the player using a pop up that they have a new high score.
+<br /> <br />Mielstone 2 was achieved later than it was stated in the plan but non the less the game is looking functional with a decent amount of polish.
 
 
 ### 31/3/2025
@@ -215,3 +217,7 @@ I added a void death to the player to prevent out of bounds traversal. I have al
 Ive refactored mageSpell.gd, loading screen, HUD, HowToPlay, game over, flicker, pauseMenu.
 <br /> <br />Its now time for the big refactor and comemnts for the imporant sections of code, smaller scripts have been completed. 
 <br /> <br />Options and Settings scripts done. Along with player, and mage enemey. Full refactor and comments of code now complete.
+
+
+### 05/4/2025
+A final play test of the game will be conducted and feedback will be taken as usual. With this, lookign back at the project plan and the timelien that was stated. everything had worked out, with some delays here and there, we ultimaltey ended up in the desired path, all objectives ste int the last weeks have been achieved. Now its time to tidy up the codebase and what else and then work on finalising the final report.
