@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpbxiff6dejs1"]
+
+[ext_resource type="Script" path="res://Scripts/DungeonGenerator.gd" id="1_82w1m"]
+[ext_resource type="PackedScene" uid="uid://bhhr350rm8v24" path="res://Scenes/dungeonRoom.tscn" id="2_jd02l"]
+[ext_resource type="PackedScene" uid="uid://c32di2fuq4ls3" path="res://Scenes/player.tscn" id="3_v4glu"]
+[ext_resource type="PackedScene" uid="uid://0t3vrrhcap37" path="res://Scenes/enemy.tscn" id="4_y7jp2"]
+[ext_resource type="PackedScene" uid="uid://cdo4jpwpu42da" path="res://Scenes/Chest.tscn" id="5_3j06n"]
+[ext_resource type="PackedScene" uid="uid://2sjm4n5hkqqg" path="res://Scenes/PauseMenu.tscn" id="5_7erwm"]
+[ext_resource type="PackedScene" uid="uid://bfo8vu5ys4rv0" path="res://Scenes/hud.tscn" id="5_vge5d"]
+[ext_resource type="PackedScene" uid="uid://c6st6fddns3fu" path="res://Scenes/potion.tscn" id="6_sof5x"]
+[ext_resource type="PackedScene" uid="uid://dos3aa6nfvicg" path="res://Scenes/GameOver.tscn" id="7_ffre0"]
+[ext_resource type="AudioStream" uid="uid://cse2yiie7h0xv" path="res://Audio/a_dungeon_ambience_loop-79423.mp3" id="10_konmy"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_82w1m")
+starting_room_scene = ExtResource("2_jd02l")
+player_scene = ExtResource("3_v4glu")
+enemy_scene = ExtResource("4_y7jp2")
+chest_scene = ExtResource("5_3j06n")
+potion_scene = ExtResource("6_sof5x")
+max_rooms = 14
+max_trap_rooms = 4
+max_chest_rooms = 7
+max_potions = 5
+
+[node name="Pause" parent="." instance=ExtResource("5_7erwm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" groups=["hud"] instance=ExtResource("5_vge5d")]
+
+[node name="GameOver" parent="." instance=ExtResource("7_ffre0")]
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_konmy")
+volume_db = -9.143
+autoplay = true
+bus = &"Music"
+parameters/looping = true

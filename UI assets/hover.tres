@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b041g305amd62"]
-
-[ext_resource type="Texture2D" uid="uid://b8nk2j827bd4q" path="res://UI assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Spritesheets/Spritesheet_UI_Flat_Animated.png" id="1_jtvna"]
-
-[resource]
-atlas = ExtResource("1_jtvna")
-region = Rect2(32, 67, 32, 29)

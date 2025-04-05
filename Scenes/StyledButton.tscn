@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkdv0yqwjfojo"]
+
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="1_tr7qu"]
+[ext_resource type="Texture2D" uid="uid://b041g305amd62" path="res://UI assets/hover.tres" id="2_4l2or"]
+[ext_resource type="Texture2D" uid="uid://c7urheojdg50x" path="res://UI assets/pressed.tres" id="3_0o03y"]
+[ext_resource type="Texture2D" uid="uid://c5edsk3bbqfru" path="res://UI assets/Atlas.tres" id="4_djxxd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujbsb"]
+texture = ExtResource("2_4l2or")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2hlx"]
+texture = ExtResource("3_0o03y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnctv"]
+texture = ExtResource("4_djxxd")
+
+[node name="StartButton" type="Button"]
+theme_override_colors/font_hover_color = Color(0.147672, 0.147672, 0.147672, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_tr7qu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxTexture_ujbsb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l2hlx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bnctv")
+text = "Start"

@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://ex4my6ejl4ol"]
+
+[ext_resource type="Script" path="res://Scripts/LoadingScreen.gd" id="1_cn34s"]
+[ext_resource type="Texture2D" uid="uid://bfuehg4un4o7n" path="res://Assets/UI assets/PBM.png" id="2_kb0fb"]
+
+[sub_resource type="Animation" id="Animation_g04cg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tddau"]
+resource_name = "fade_in_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_giy4t"]
+_data = {
+"RESET": SubResource("Animation_g04cg"),
+"fade_in_out": SubResource("Animation_tddau")
+}
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -262.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.30166, 1.28023)
+script = ExtResource("1_cn34s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -3581.0
+offset_top = -4136.0
+offset_right = 7607.0
+offset_bottom = 4575.0
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -174.393
+offset_top = -82.7976
+offset_right = 3857.61
+offset_bottom = 2941.2
+scale = Vector2(0.995563, 0.998713)
+texture = ExtResource("2_kb0fb")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_giy4t")
+}

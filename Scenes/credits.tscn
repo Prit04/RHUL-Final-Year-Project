@@ -1,0 +1,139 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhg5alc1mhko8"]
+
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="1_oo342"]
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_ss2dk"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="3_lhmnd"]
+[ext_resource type="AudioStream" uid="uid://cbtpi51nvwkqc" path="res://Audio/FREE_BACKGROUND_MUS_C_-_No_Copyright_Music_-_Dungeon.mp3" id="4_ldb72"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ss2dk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -391.0
+offset_top = -237.0
+offset_right = -327.0
+offset_bottom = -172.0
+scale = Vector2(28.76, 16.6)
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = -3.0
+offset_right = 641.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AssetCredits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -46.0
+offset_right = 450.0
+offset_bottom = 535.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 11
+text = "🛠️ Asset Credits 🛠️ 
+
+
+KayKit Character Pack, Dungeon Remastered & Skeletons
+Created by: Kay Lousberg - https://www.kaylousberg.com/
+License: CC0 (Creative Commons Zero)
+
+Various SFX & Icons 
+Created by: Crusenho Agus Hennihuno
+Source: Crusenho on itch.io - https://crusenho.itch.io/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Minimal Fantasy UI
+Created by: Etahoshi - https://etahoshi.itch.io/minimal-fantasy-gui-by-eta
+License: CC BY 4.0 (Creative Commons Attribution)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioCredits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 81.0
+offset_right = 1000.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 11
+text = "🎧 Audio Credits 🎧
+
+
+Background Music
+
+Track: FREE BACKGROUND MUSİC - No Copyright Music - Dungeon
+
+Composer: FREE BACKGROUND MUSİC - No Copyright Music🎶 - https://www.youtube.com/c/FREEMUS%C4%B0CMP3
+
+Source: YouTube
+
+License: Free to use with attribution
+Used as ambient background music throughout the Menu.
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioCredits2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 333.0
+offset_right = 1122.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 11
+text = "Sound Effects
+
+Multiple sound effects were sourced from free-to-use libraries with appropriate licenses. Some effects were trimmed or modified to suit gameplay needs.
+
+Includes: UI interactions, footsteps, combat hits, death sounds, loot collection, spellcasting, and more.
+
+Sources:
+-Mixkit Free SFX Library - https://mixkit.co/free-sound-effects/game/
+-Uppbeat.io - Gaming SFX - https://uppbeat.io/sfx/category/gaming
+=Pixabay Free SFX - https://pixabay.com/
+=Footstep SFX by Everyday Cinematic Sounds – https://www.youtube.com/watch?v=aLo4jmblu3E
+All sound effects are used under free licenses or Creative Commons, with attribution where required."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_oo342")
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lhmnd")
+bus = &"SFX"
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ldb72")
+volume_db = -7.495
+autoplay = true
+bus = &"Music"
+parameters/looping = true

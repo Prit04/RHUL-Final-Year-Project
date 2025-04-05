@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://xg17vll662cs"]
+
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="1_6uevw"]
+[ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_8tvfx"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="2_7y724"]
+[ext_resource type="AudioStream" uid="uid://nd3opackb62r" path="res://Audio/typewriter.mp3" id="4_2f4ct"]
+[ext_resource type="AudioStream" uid="uid://cbtpi51nvwkqc" path="res://Audio/FREE_BACKGROUND_MUS_C_-_No_Copyright_Music_-_Dungeon.mp3" id="5_uuh8i"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8tvfx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 67.0
+offset_right = 705.0
+offset_bottom = 173.0
+alignment = 1
+
+[node name="CONTROLS" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "    CONTROLS:"
+
+[node name="MOVE" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "WASD - MOVE"
+
+[node name="ATTACK" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "SPACEBAR - ATTACK"
+
+[node name="INTERACT" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "E - INTERACT"
+
+[node name="PAUSE" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "ESC - PAUSE"
+
+[node name="GOAL" type="Label" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 201.0
+offset_right = 1014.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "GOAL: 
+Your goal is to survive and get the highest score possible. 
+
+To gain points you must slay fearsome enemies and find chests filled with riches. 
+
+Will you, as the Cryptborn, be able to take on the challenge?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="WARNING" type="Label" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 429.0
+offset_right = 1014.0
+offset_bottom = 693.0
+theme_override_colors/font_color = Color(0.403903, 7.64076e-07, 2.40654e-08, 1)
+theme_override_fonts/font = ExtResource("1_6uevw")
+text = "WARNING:
+The crypt holds many mysteries, stay confined to the dungeon walls. Do NOT let the fog consume you! It will do what it can to allure you. Ask yourself, is it worth it..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_6uevw")
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7y724")
+bus = &"SFX"
+
+[node name="TypeSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2f4ct")
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uuh8i")
+volume_db = -7.495
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
