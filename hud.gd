@@ -3,16 +3,16 @@ extends CanvasLayer
 ## --- Main Gameplay HUD Script ---
 ## This is the main HUD for the gameplay, holding values such as the players health and score, along with score saving.
 
-## --- UI Nodes ---
+# --- UI Nodes ---
 @onready var health_container = $MarginContainer/VBoxContainer/HealthContainer
 @onready var score_label = $ScoreLabel
 
-## --- Paths & Save Data ---
+# --- Paths & Save Data ---
 var save_path := "user://save_data.cfg"
 var high_score := 0
 var score := 0
 
-## --- Health ---
+# --- Health ---
 var max_health := 5
 var current_health := 5
 

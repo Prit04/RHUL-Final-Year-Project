@@ -3,7 +3,7 @@ extends CanvasLayer
 ## --- Game Over Scene Script ---
 ## Shows the death screen to the player: including return to main menu and retry.
 
-## --- UI Node References ---
+# --- UI Node References ---
 @onready var play_again_button = $VBoxContainer/PlayAgainButton
 @onready var main_menu_button = $VBoxContainer/MainMenuButton
 @onready var click_player = $ClickPlayer

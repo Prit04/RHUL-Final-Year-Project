@@ -3,7 +3,7 @@ extends Node3D
 ## --- Torch Flicker Effect Script ---
 ## --- Applys a flicker effect to the torches using randomisation ---
 
-## --- Torch Flicker Settings ---
+# --- Torch Flicker Settings ---
 @onready var torch_light := $OmniLight3D
 var rng := RandomNumberGenerator.new()
 

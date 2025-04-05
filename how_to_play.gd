@@ -3,13 +3,13 @@ extends Control
 ## --- How To Play Menu Script ---
 ## --- A menu screen displaying the controls and goals of the game to the player.
 
-## --- UI Node References ---
+# --- UI Node References ---
 @onready var back_button = $BackButton
 @onready var click_player = $ClickPlayer
 @onready var type_sfx = $TypeSFX
 @onready var label = $WARNING
 
-## --- Typewriter Settings ---
+# --- Typewriter Settings ---
 @export var full_text: String = """WARNING:
 The crypt holds many mysteries, stay confined to the dungeon walls. 
 Do NOT let the fog consume you! It will do what it can to allure you. 
