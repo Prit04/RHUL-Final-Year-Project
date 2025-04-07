@@ -223,3 +223,7 @@ Ive refactored mageSpell.gd, loading screen, HUD, HowToPlay, game over, flicker,
 A final play test of the game will be conducted and feedback will be taken as usual. With this, lookign back at the project plan and the timelien that was stated. everything had worked out, with some delays here and there, we ultimaltey ended up in the desired path, all objectives ste int the last weeks have been achieved. Now its time to tidy up the codebase and what else and then work on finalising the final report.
 <br /> <br />All project files haev been organised, docs needed to be added to explain.
 <br /> <br />Documentation for each folder had been added.
+
+
+### 07/4/2025
+I have added the final feature for the game which is a vicotry screen for when the player kills all enemies in the dungeon.
