@@ -23,6 +23,8 @@ extends Node3D
 var chest_room_count: int = 0
 var trap_room_count: int = 0
 var potions_spawned: int = 0
+var total_enemies := 0
+var defeated_enemies := 0
 var spawned_rooms: Array[Node3D] = []
 var used_positions := {}
 var player_instance: Node3D
@@ -146,6 +148,23 @@ func spawn_enemies_in_room(room: Node3D):
 
 				room.add_child(enemy_instance)
 				enemy_instance.global_transform.origin = spawn_point.global_transform.origin
+
+				enemy_instance.connect("died", Callable(self, "_on_enemy_died")) 
+				total_enemies += 1
+
+# --- Enemy Death Tracking (Victory) ---
+func _on_enemy_died():
+	defeated_enemies += 1
+	print("Total:", defeated_enemies, "/", total_enemies)
+
+	if defeated_enemies >= total_enemies:
+		show_victory_screen()
+
+# --- Display Victory Screen
+func show_victory_screen():
+	var victory_screen = preload("res://Scenes/VictoryScreen.tscn").instantiate()
+	get_tree().current_scene.add_child(victory_screen)
+	get_tree().paused = true
 
 # --- Potion Spawnining ----
 func spawn_potion_in_room(room: Node3D):
