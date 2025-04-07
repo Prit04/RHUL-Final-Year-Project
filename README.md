@@ -25,7 +25,7 @@ Get the highest score possible by killing enemies and finding chests filled with
 <br> <br>Potions will aid your journey healing any wounds you may acquire.
 <br> <br>Avoid the **fog** outside the dungeon. Falling into the void results in death.
 
-## 📊 Technical Breakdown
+## Technical Breakdown
 
 | Feature | Description |
 |--------|-------------|
