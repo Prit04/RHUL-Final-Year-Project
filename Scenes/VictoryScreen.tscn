@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ts2imp1xaj7"]
+
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="1_shkg8"]
+[ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://Scenes/StyledButton.tscn" id="2_bjp0o"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.372549, 1, 0.360784, 0.227451)
+
+[node name="Victory" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 145.0
+offset_right = 1297.0
+offset_bottom = 301.0
+theme_override_fonts/font = ExtResource("1_shkg8")
+theme_override_font_sizes/font_size = 45
+text = "        Victory! 
+You cleared the dungeon!"
+autowrap_mode = 2
+
+[node name="ExitButton" parent="." instance=ExtResource("2_bjp0o")]
+offset_left = 365.0
+offset_top = 424.0
+offset_right = 775.0
+offset_bottom = 476.0
+theme_override_font_sizes/font_size = 20
+text = "Return to main menu"
