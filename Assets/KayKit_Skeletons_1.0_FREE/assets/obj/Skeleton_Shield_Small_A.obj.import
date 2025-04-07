@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ol2xma0hvph5"
+path="res://.godot/imported/Skeleton_Shield_Small_A.obj-da8537fcebb7aece992cd2c95d7d4bae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Shield_Small_A.obj-da8537fcebb7aece992cd2c95d7d4bae.mesh"]
+
+source_file="res://Assets/KayKit_Skeletons_1.0_FREE/assets/obj/Skeleton_Shield_Small_A.obj"
+dest_files=["res://.godot/imported/Skeleton_Shield_Small_A.obj-da8537fcebb7aece992cd2c95d7d4bae.mesh", "res://.godot/imported/Skeleton_Shield_Small_A.obj-da8537fcebb7aece992cd2c95d7d4bae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

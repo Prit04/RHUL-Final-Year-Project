@@ -1,0 +1,202 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl3fb84jgpreq"]
+
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_ky1sw"]
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="2_uphlp"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="3_tdiwt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1giga"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vpe5s"]
+color = Color(1, 1, 1, 1)
+grow_begin = -10.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_puhgt"]
+color = Color(1, 1, 1, 1)
+grow_begin = -11.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fo8qv"]
+color = Color(1, 1, 1, 1)
+grow_begin = -11.0
+thickness = 4
+
+[sub_resource type="Animation" id="Animation_slsdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xl4kn"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pqcdq"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lubea"]
+_data = {
+"RESET": SubResource("Animation_slsdl"),
+"fade_in": SubResource("Animation_xl4kn"),
+"fade_out": SubResource("Animation_pqcdq")
+}
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 353.0
+offset_right = 488.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ky1sw")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = -758.0
+offset_top = -635.0
+offset_right = 1589.0
+offset_bottom = 927.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1giga")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = -35.0
+offset_right = 334.0
+offset_bottom = 201.0
+scale = Vector2(1.51546, 1.39704)
+
+[node name="Audio Settings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+text = "Audio Settings"
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="VBoxContainer/MasterVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 9
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_vpe5s")
+max_value = 50.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="VBoxContainer/MusicVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_puhgt")
+max_value = 50.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="VBoxContainer/SFXVolume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 16
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxLine_fo8qv")
+max_value = 50.0
+
+[node name="VideoSettings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+text = "Video Settings"
+
+[node name="FullscreenCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 9
+text = "Fullscreen"
+
+[node name="VSyncCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 12
+text = "VSync"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_uphlp")
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tdiwt")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lubea")
+}
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

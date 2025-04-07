@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnwtkydetc45j"
+path="res://.godot/imported/table_medium.obj-1ff997a469124f59e5674780863e2528.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table_medium.obj-1ff997a469124f59e5674780863e2528.mesh"]
+
+source_file="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/obj/table_medium.obj"
+dest_files=["res://.godot/imported/table_medium.obj-1ff997a469124f59e5674780863e2528.mesh", "res://.godot/imported/table_medium.obj-1ff997a469124f59e5674780863e2528.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

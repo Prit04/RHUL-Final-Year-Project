@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgx5ehjwfrg33"
+path="res://.godot/imported/book_grey.obj-c657999053154726b1b4b37f6f3fd1d8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/book_grey.obj-c657999053154726b1b4b37f6f3fd1d8.mesh"]
+
+source_file="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/obj/book_grey.obj"
+dest_files=["res://.godot/imported/book_grey.obj-c657999053154726b1b4b37f6f3fd1d8.mesh", "res://.godot/imported/book_grey.obj-c657999053154726b1b4b37f6f3fd1d8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

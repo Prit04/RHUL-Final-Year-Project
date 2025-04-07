@@ -1,0 +1,231 @@
+[gd_scene load_steps=21 format=3 uid="uid://cny51xptnsdk1"]
+
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_1smaw"]
+[ext_resource type="Texture2D" uid="uid://r2ijn81l73rq" path="res://Assets/UI assets/mainmenu.webp" id="2_v7cav"]
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="3_223tr"]
+[ext_resource type="Texture2D" uid="uid://b041g305amd62" path="res://Assets/UI assets/hover.tres" id="3_c0nsy"]
+[ext_resource type="PackedScene" uid="uid://bkdv0yqwjfojo" path="res://Scenes/StyledButton.tscn" id="3_cpbj0"]
+[ext_resource type="Texture2D" uid="uid://c7urheojdg50x" path="res://Assets/UI assets/pressed.tres" id="4_cildj"]
+[ext_resource type="Texture2D" uid="uid://c5edsk3bbqfru" path="res://Assets/UI assets/Atlas.tres" id="5_gflfo"]
+[ext_resource type="AudioStream" uid="uid://cbtpi51nvwkqc" path="res://Audio/FREE_BACKGROUND_MUS_C_-_No_Copyright_Music_-_Dungeon.mp3" id="8_220a6"]
+[ext_resource type="AudioStream" uid="uid://bmcu5lpdhqgme" path="res://Audio/UIClick.mp3" id="9_agep2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhy7o"]
+texture = ExtResource("3_c0nsy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qircf"]
+texture = ExtResource("4_cildj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qosb"]
+texture = ExtResource("5_gflfo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlhod"]
+texture = ExtResource("3_c0nsy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4dxmr"]
+texture = ExtResource("4_cildj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ocu5"]
+texture = ExtResource("5_gflfo")
+
+[sub_resource type="Animation" id="Animation_wjaa4"]
+resource_name = "BG_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gv4xv"]
+resource_name = "BG_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hp4ge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6pri5"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d7tel"]
+_data = {
+"BG_fade_in": SubResource("Animation_wjaa4"),
+"BG_fade_out": SubResource("Animation_gv4xv"),
+"RESET": SubResource("Animation_hp4ge"),
+"fade_in": SubResource("Animation_6pri5")
+}
+
+[node name="Control" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -320.0
+offset_right = 1218.0
+offset_bottom = 812.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.722291, 0.683241)
+script = ExtResource("1_1smaw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2359.22
+offset_top = -1639.39
+offset_right = 4963.78
+offset_bottom = 2351.61
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -123.219
+offset_top = -4.39084
+offset_right = 1668.78
+offset_bottom = 1019.61
+texture = ExtResource("2_v7cav")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 699.164
+offset_top = 619.108
+offset_right = 963.164
+offset_bottom = 775.108
+scale = Vector2(0.651654, 1)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StartButton" parent="VBoxContainer" instance=ExtResource("3_cpbj0")]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.103744, 0.103744, 0.103744, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_223tr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxTexture_qhy7o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qircf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0qosb")
+text = "Options"
+
+[node name="HTPButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.103744, 0.103744, 0.103744, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_223tr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxTexture_qhy7o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qircf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0qosb")
+text = "How to play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.103744, 0.103744, 0.103744, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_223tr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxTexture_qhy7o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qircf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0qosb")
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.151276, 0.151276, 0.151276, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_223tr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlhod")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4dxmr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8ocu5")
+text = "Exit"
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d7tel")
+}
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_220a6")
+volume_db = -7.495
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_agep2")
+bus = &"SFX"

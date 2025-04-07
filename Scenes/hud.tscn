@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfo8vu5ys4rv0"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_g0sn5"]
+[ext_resource type="Texture2D" uid="uid://cd370v4olwf5d" path="res://Assets/UI assets/UI/HeartIcons_32x32.png" id="2_rg557"]
+[ext_resource type="Texture2D" uid="uid://c8erci7r8ftkj" path="res://Assets/UI assets/UI/TitleBox_64x16.png" id="3_8upr0"]
+[ext_resource type="FontFile" uid="uid://cin3rhaldoear" path="res://Assets/PressStart2P-Regular.ttf" id="3_klk2e"]
+[ext_resource type="AudioStream" uid="uid://das1hf4mk0mrr" path="res://Audio/Points.mp3" id="5_14cuv"]
+
+[sub_resource type="Animation" id="Animation_mh3d5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_kel3o"]
+resource_name = "score_pop"
+length = 0.3
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 19, 18, 17, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwyhr"]
+_data = {
+"RESET": SubResource("Animation_mh3d5"),
+"score_pop": SubResource("Animation_kel3o")
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_g0sn5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 1
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 189.0
+offset_bottom = 67.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_direction = 1
+layout_mode = 2
+
+[node name="HealthContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Heart1" type="TextureRect" parent="MarginContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_rg557")
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_rg557")
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_rg557")
+
+[node name="Heart4" type="TextureRect" parent="MarginContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_rg557")
+
+[node name="Heart5" type="TextureRect" parent="MarginContainer/VBoxContainer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_rg557")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 175.0
+offset_bottom = 62.0
+scale = Vector2(1.16, 0.72)
+texture = ExtResource("3_8upr0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qwyhr")
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 45.0
+offset_right = 189.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("3_klk2e")
+theme_override_font_sizes/font_size = 16
+text = "SCORE"
+
+[node name="NewHighScoreLabel" type="Label" parent="."]
+visible = false
+offset_left = 10.0
+offset_top = 94.0
+offset_right = 250.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("3_klk2e")
+theme_override_font_sizes/font_size = 16
+text = "NEW HIGH SCORE!"
+
+[node name="Points" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_14cuv")
+bus = &"SFX"

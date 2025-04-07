@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6st6fddns3fu"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0lqfc5e50a45" path="res://Assets/KayKit_DungeonRemastered_1.1_SOURCE/Assets/obj/bottle_A_labeled_green.obj" id="1_0hdp8"]
+[ext_resource type="Script" path="res://Scripts/potion.gd" id="1_10vg6"]
+[ext_resource type="AudioStream" uid="uid://77hpaq0xxwpi" path="res://Audio/mixkit-video-game-health-recharge-2837.wav" id="3_mm8lu"]
+[ext_resource type="Texture2D" uid="uid://chp40e8vqy7nl" path="res://Assets/green_glow_potion.png" id="4_xbcj3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khpk8"]
+radius = 0.230439
+height = 1.00476
+
+[node name="Potion" type="StaticBody3D"]
+script = ExtResource("1_10vg6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_0hdp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109361, 0.450487, -0.00361264)
+shape = SubResource("CapsuleShape3D_khpk8")
+
+[node name="PotionDrinkSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_mm8lu")
+attenuation_model = 3
+volume_db = -10.0
+unit_size = 1.0
+max_distance = 50.27
+bus = &"SFX"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.450226, -0.00973061)
+modulate = Color(1, 1, 1, 0.392157)
+billboard = 1
+texture = ExtResource("4_xbcj3")
