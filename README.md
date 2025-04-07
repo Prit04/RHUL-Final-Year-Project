@@ -1,10 +1,40 @@
 # Final Year Project
+# Cryptborn: Procedural Dungeon Crawler
 
-This repository has been created to store your final year project.
-
-You may edit it as you like, but please do not remove the default topics or the project members list. These need to stay as currently defined in order for your supervisor to be able to find your project.
-
+**Cryptborn** is a 3D action-adventure dungeon crawler built in **Godot 4.3**, featuring procedural room generation, enemy AI, melee combat, dynamic lighting, ambient effects, and an atmospheric retro UI. Your objective: survive the dungeon, collect loot, and avoid the void.
 <br> <br> 
+
+## Features
+
+- Procedural dungeon generation (trap rooms, chests, potions)
+- Melee combat system with animation-based attacks
+- Multiple enemy types: melee skeletons and ranged mages
+- Enemy awakening & patrol logic
+- Score saving system
+- Full sound design 
+
+## How to Play
+
+- **WASD** — Move
+- **Shift** — Sprint
+- **Space** — Attack
+- **E** — Interact with chests or potions
+- **ESC** — Pause menu (Options, Resume, Exit)
+
+Get the highest score possible by killing enemies and finding chests filled with loot.
+<br> <br>Potions will aid your journey healing any wounds you may acquire.
+<br> <br>Avoid the **fog** outside the dungeon. Falling into the void results in death.
+
+## 📊 Technical Breakdown
+
+| Feature | Description |
+|--------|-------------|
+| **Procedural Generation** | Rooms placed via offset-based spawning, snap-to-grid alignment, door linking logic |
+| **Enemy AI** | FSM-based logic with range detection, attacks, and death sequences |
+| **Audio Settings** | Master/Music/SFX sliders linked to `AudioBus` volumes with config saving |
+| **Score System** | Current score, high score saving with file I/O |
+| **Scene Transitions** | Smooth fades between menus and gameplay states |
+| **Visual FX** | Torch flickering (RNG-based light energy), potion glows, screen shake |
 
 # Running instructions
 ## Prerequisites
@@ -34,3 +64,10 @@ Click on Import Project and navigate to the folder containing the project files.
 Select the project.godot file and click Open.
 <br> 
 Once the project is imported, click Play (F5) in the top-right corner of the Godot editor to run the game.
+
+# Author
+
+**Name:** Prithvi Sathyamoorthy Veeran
+**Student Number:** 101004017
+ **Candidate Number:** 2503780
+**Project Type:** Final Year Project — Building a Game  
