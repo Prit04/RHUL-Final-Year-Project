@@ -228,3 +228,10 @@ A final play test of the game will be conducted and feedback will be taken as us
 ### 07/4/2025
 I have added the final feature for the game which is a vicotry screen for when the player kills all enemies in the dungeon.
 <br /> <br />Working code branch now successfully merged with the main branch. This is now the final stage in the timeline and development for the game has now fully concluded. Time will now be focused on finalising the report and preparing for the final submission. What a journey this has been, this project has helped me significantly grow as a developer.
+
+
+### 08/4/2025
+Finalisation of the report,demo video and game.exe will be ready for submision on the 11th.
+
+
+## Prithvi S. Veeran - Signing out
