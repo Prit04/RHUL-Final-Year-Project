@@ -4,6 +4,10 @@
 **Cryptborn** is a 3D action-adventure dungeon crawler built in **Godot 4.3**, featuring procedural room generation, enemy AI, melee combat, dynamic lighting, ambient effects, and an atmospheric retro UI. Your objective: survive the dungeon, collect loot, and avoid the void.
 <br> <br> 
 
+## Structre
+
+- This codebase contains the files for the project, including a directory for the scripts used along with the relavent scenes.
+
 ## Features
 
 - Procedural dungeon generation (trap rooms, chests, potions)
