@@ -74,10 +74,5 @@ Once the project is imported, click Play (F5) in the top-right corner of the God
 **Name:** Prithvi Sathyamoorthy Veeran
 <br> 
 
-**Student Number:** 101004017
-<br> 
-
-**Candidate Number:** 2503780
-<br> 
 
 **Project Type:** Final Year Project — Building a Game  
