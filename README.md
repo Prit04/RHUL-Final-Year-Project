@@ -1,4 +1,10 @@
 # Final Year Project
+![Godot](https://img.shields.io/badge/engine-godot-478cbf?logo=godot-engine&logoColor=white)
+![Language](https://img.shields.io/badge/language-GDScript-orange?logo=python&logoColor=white)
+![Game Type](https://img.shields.io/badge/type-dungeon--crawler-purple)
+![Status](https://img.shields.io/badge/status-finished-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # Cryptborn: Procedural Dungeon Crawler
 
 **Cryptborn** is a 3D action-adventure dungeon crawler built in **Godot 4.3**, featuring procedural room generation, enemy AI, melee combat, dynamic lighting, ambient effects, and an atmospheric retro UI. Your objective: survive the dungeon, collect loot, and avoid the void.
